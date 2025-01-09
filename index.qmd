@@ -448,3 +448,145 @@ plt.show()
 ```
 :::
 :::::
+
+## Conceptos Básicos de Regresión Lineal
+
+::::: columns
+::: {.column style="font-size:15px"}
+**Cómo funciona la regresión líneal?**
+
+Queremos ajustar una recta a los datos y en dos dimensiones esto toma la forma de
+
+$$y = ax + b$$
+
+-   El uso de una sola característica se conoce como regresión lineal simple, en la que $y$ es la variable de respuesta, $x$ es la característica y $a,b$ son los parámetros del modelo, así mismo $a,b$ también se denominan coeficientes del modelo o pendiente $(a)$ y coeficiente $(b)$.
+
+**Cómo elegimos con precisión valores para** $a$ **y** $b$**?**
+
+-   Podemos definir una función de error (o función de pérdida o de coste) para cualquier recta dada,
+
+-   y luego, elegir la recta que minímice esta función.
+
+-   Error function = loss function = cost function
+
+Visualicemos una función de loss o pérdida utilizando este gráfico de dispersión:
+
+![](img/g_disp8.png){fig-align="center" width="235"}
+:::
+
+::: {.column style="font-size:15px"}
+Queremos que la línea este lo más cerca posible de las observaciones
+
+![](img/g_disp9.png){fig-align="center" width="200"}
+
+por tanto, queremos minímizar la distancia vertical entre el ajuste y los datos, entonces para cada observación calculamos la distancia vertical entre esta y la línea:
+
+![](img/g_disp11.png){fig-align="center" width="200"}
+
+dicha distancia se denomina ***residuo***. Podríamos intentar minímizar la suma de los residuos, pero entonces cada residuo positivo anularia cada residuo negativo. Para evitarlo elevamos al cuadrado los residuos:
+
+$$
+RSS = \sum_{i=1}^n (y_i - \hat{y_i})^2 \longrightarrow minímos~cuadrados~ordinarios
+$$
+:::
+:::::
+
+## Conceptos Básico de Regresión Lineal
+
+::::: columns
+::: {.column style="font-size:15px"}
+**Regresión lineal en dimensiones superiores**
+
+Cuando tenemos dos características $x_1,x_2$ y un objetivo $y$ la recta adopta la forma:
+
+$$
+y = a_1x_1 + a_2x_2 + b
+$$
+
+-   Cuando se añaden más características se le conoce como ***regresión lineal múltiple.***
+
+    $$
+    y = a_1x1 + a_2x_2 + . . . + a_nx_n +b
+    $$
+
+Ajustar un modelo de regresión lineal múltiple significa especificar un coeficiente $a_n$, para $n$ número de características y $b$.
+
+Para los modelos de regresión lineal múltiple `scikit-learn` espera una variable cada uno para los valores de característica y objetivo.
+
+**Simulando modelo de regresión lineal múltiple**
+
+Vamos a realizar una regresión lineal para predecir los niveles de glucosa en sangre, utilizando todas las características del conjunto de datos de la diabetes.
+
+```{python}
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+
+# Dividimos los datos en Train y test
+X_train, X_test, y_train, y_test = train_test_split(X,y,test_size=0.3, random_state=42)
+
+# Instanciamos el modelo 
+reg_all = LinearRegression()
+
+# Ajustamos el modelo en el conjunto de entrenamiento
+reg_all.fit(X_train, y_train)
+```
+:::
+
+::: {.column style="font-size:15px"}
+```{python}
+# Predecimos en el conjunto de prueba 
+y_pred = reg_all.predict(X_test)
+
+```
+
+Ten en cuenta que la regresión lineal en scikit-learn realiza RSS.
+
+$R^2$: es la métrica por defecto de la regresión lineal, que cuntifica la cantidad de varianza de la variable objetivo que explican las características, los valores pueden ir de 0 a 1.
+
+-   **1:** significa que las características explican completamente la variabnza del objetivo.
+
+Aquí tienes dos gráficos que visualizan el $R^2$ alto y bajo respectivamente.
+
+![](img/g_disp12.png){fig-align="center" width="491"}
+
+```{python}
+reg_all.score(X_test, y_test)
+```
+
+Aquí las características solo explican al rededor del 28% de la varianza del nivel de glucosa en sangre.
+:::
+:::::
+
+## Conceptos Básicos de Regresión Lineal
+
+::::: columns
+::: {.column style="font-size:15px"}
+**Error cuadrático medio o MSE**
+
+Otro forma de evaluar el rendimiento de un modelo de regresíon es tomar la medía de la suma residual de cuadrados.
+
+$$
+MSE = \frac{1}{n}\sum_{i=1}^n (y_i - \hat{y_i})^2
+$$
+
+-   Esto se conoce como error cuadrático medio o MSE.
+
+-   El MSE se mide en unidades de nuestra variable objetivo al cuadrado. Por ejemplo, si un modelo predice un valor en dólares el MSE estará en dólares al cuadrado. Para convertirlo a dólares podemos tomar la raíz cuadrada $$RMSE = \sqrt{MSE}$$
+
+Veamos el calculo con scikit-learn:
+
+```{python}
+from sklearn.metrics import mean_squared_error
+import numpy as np
+
+mse = mean_squared_error(y_test, y_pred)
+rmse = np.sqrt(mse)
+rmse
+```
+
+Esto nos dice que el modelo tiene un error medio para los niveles de glucosa en sangre de unos 26 mg/dl.
+:::
+
+::: {.column style="font-size:15px"}
+:::
+:::::

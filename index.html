@@ -11,7 +11,7 @@
   <meta name="generator" content="quarto-1.5.57">
 
   <meta name="author" content="Lic. Juan Isaula">
-  <meta name="dcterms.date" content="2025-01-05">
+  <meta name="dcterms.date" content="2025-01-09">
   <title>Cientifico de Machine Learning</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -409,7 +409,7 @@ Lic. Juan Isaula
     </div>
 </div>
 
-  <p class="date">January 5, 2025</p>
+  <p class="date">January 9, 2025</p>
 </section>
 <section id="introducción" class="slide level2">
 <h2>Introducción</h2>
@@ -526,7 +526,7 @@ Lic. Juan Isaula
 <p><img data-src="img/g_disp5.png" width="263"></p>
 <p>Se prevee que los clientes con la zona de fondo gris se darán de baja y los clientes en zona con fondo rojo no lo harán. Este límite se utilizaría para hacer predicciones sobre datos no vistos.</p>
 <h3 id="ajuste-de-un-modelo-de-clasificación-usando-scikit-learn"><strong>Ajuste de un modelo de clasificación usando Scikit-learn</strong></h3>
-<div id="86e72358" class="cell" data-execution_count="1">
+<div id="cd13a329" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd </span>
 <span id="cb2-2"><a href=""></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb2-3"><a href=""></a><span class="im">from</span> sklearn.neighbors <span class="im">import</span> KNeighborsClassifier</span>
@@ -547,14 +547,14 @@ Lic. Juan Isaula
 <div class="columns">
 <div class="column" style="font-size:16px">
 <p>A contininuación instanciamos nuestro modelo KNeighborsClassifier:</p>
-<div id="23f4e860" class="cell" data-execution_count="2">
+<div id="fcfe2bb6" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a>knn <span class="op">=</span> KNeighborsClassifier(n_neighbors <span class="op">=</span> <span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Ahora podemos ajustar nuestro clasificador a nuestros datos etiquetados aplicando el método <code>.fit()</code> y pasandole dos argumentos (los valores de las características (X) y los valores objetivos (y)):</p>
-<div id="4cf3dde5" class="cell" data-execution_count="3">
+<div id="784fe896" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a>knn.fit(X,y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
-<style>#sk-container-id-1 {
+<div class="cell-output cell-output-display" data-execution_count="241">
+<style>#sk-container-id-25 {
   /* Definition of color scheme common for light and dark mode */
   --sklearn-color-text: #000;
   --sklearn-color-text-muted: #666;
@@ -585,15 +585,15 @@ Lic. Juan Isaula
   }
 }
 
-#sk-container-id-1 {
+#sk-container-id-25 {
   color: var(--sklearn-color-text);
 }
 
-#sk-container-id-1 pre {
+#sk-container-id-25 pre {
   padding: 0;
 }
 
-#sk-container-id-1 input.sk-hidden--visually {
+#sk-container-id-25 input.sk-hidden--visually {
   border: 0;
   clip: rect(1px 1px 1px 1px);
   clip: rect(1px, 1px, 1px, 1px);
@@ -605,7 +605,7 @@ Lic. Juan Isaula
   width: 1px;
 }
 
-#sk-container-id-1 div.sk-dashed-wrapped {
+#sk-container-id-25 div.sk-dashed-wrapped {
   border: 1px dashed var(--sklearn-color-line);
   margin: 0 0.4em 0.5em 0.4em;
   box-sizing: border-box;
@@ -613,7 +613,7 @@ Lic. Juan Isaula
   background-color: var(--sklearn-color-background);
 }
 
-#sk-container-id-1 div.sk-container {
+#sk-container-id-25 div.sk-container {
   /* jupyter's `normalize.less` sets `[hidden] { display: none; }`
      but bootstrap.min.css set `[hidden] { display: none !important; }`
      so we also need the `!important` here to be able to override the
@@ -623,7 +623,7 @@ Lic. Juan Isaula
   position: relative;
 }
 
-#sk-container-id-1 div.sk-text-repr-fallback {
+#sk-container-id-25 div.sk-text-repr-fallback {
   display: none;
 }
 
@@ -639,14 +639,14 @@ div.sk-item {
 
 /* Parallel-specific style estimator block */
 
-#sk-container-id-1 div.sk-parallel-item::after {
+#sk-container-id-25 div.sk-parallel-item::after {
   content: "";
   width: 100%;
   border-bottom: 2px solid var(--sklearn-color-text-on-default-background);
   flex-grow: 1;
 }
 
-#sk-container-id-1 div.sk-parallel {
+#sk-container-id-25 div.sk-parallel {
   display: flex;
   align-items: stretch;
   justify-content: center;
@@ -654,28 +654,28 @@ div.sk-item {
   position: relative;
 }
 
-#sk-container-id-1 div.sk-parallel-item {
+#sk-container-id-25 div.sk-parallel-item {
   display: flex;
   flex-direction: column;
 }
 
-#sk-container-id-1 div.sk-parallel-item:first-child::after {
+#sk-container-id-25 div.sk-parallel-item:first-child::after {
   align-self: flex-end;
   width: 50%;
 }
 
-#sk-container-id-1 div.sk-parallel-item:last-child::after {
+#sk-container-id-25 div.sk-parallel-item:last-child::after {
   align-self: flex-start;
   width: 50%;
 }
 
-#sk-container-id-1 div.sk-parallel-item:only-child::after {
+#sk-container-id-25 div.sk-parallel-item:only-child::after {
   width: 0;
 }
 
 /* Serial-specific style estimator block */
 
-#sk-container-id-1 div.sk-serial {
+#sk-container-id-25 div.sk-serial {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -693,14 +693,14 @@ clickable and can be expanded/collapsed.
 
 /* Pipeline and ColumnTransformer style (default) */
 
-#sk-container-id-1 div.sk-toggleable {
+#sk-container-id-25 div.sk-toggleable {
   /* Default theme specific background. It is overwritten whether we have a
   specific estimator or a Pipeline/ColumnTransformer */
   background-color: var(--sklearn-color-background);
 }
 
 /* Toggleable label */
-#sk-container-id-1 label.sk-toggleable__label {
+#sk-container-id-25 label.sk-toggleable__label {
   cursor: pointer;
   display: flex;
   width: 100%;
@@ -713,13 +713,13 @@ clickable and can be expanded/collapsed.
   gap: 0.5em;
 }
 
-#sk-container-id-1 label.sk-toggleable__label .caption {
+#sk-container-id-25 label.sk-toggleable__label .caption {
   font-size: 0.6rem;
   font-weight: lighter;
   color: var(--sklearn-color-text-muted);
 }
 
-#sk-container-id-1 label.sk-toggleable__label-arrow:before {
+#sk-container-id-25 label.sk-toggleable__label-arrow:before {
   /* Arrow on the left of the label */
   content: "▸";
   float: left;
@@ -727,13 +727,13 @@ clickable and can be expanded/collapsed.
   color: var(--sklearn-color-icon);
 }
 
-#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {
+#sk-container-id-25 label.sk-toggleable__label-arrow:hover:before {
   color: var(--sklearn-color-text);
 }
 
 /* Toggleable content - dropdown */
 
-#sk-container-id-1 div.sk-toggleable__content {
+#sk-container-id-25 div.sk-toggleable__content {
   max-height: 0;
   max-width: 0;
   overflow: hidden;
@@ -742,12 +742,12 @@ clickable and can be expanded/collapsed.
   background-color: var(--sklearn-color-unfitted-level-0);
 }
 
-#sk-container-id-1 div.sk-toggleable__content.fitted {
+#sk-container-id-25 div.sk-toggleable__content.fitted {
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-0);
 }
 
-#sk-container-id-1 div.sk-toggleable__content pre {
+#sk-container-id-25 div.sk-toggleable__content pre {
   margin: 0.2em;
   border-radius: 0.25em;
   color: var(--sklearn-color-text);
@@ -755,79 +755,79 @@ clickable and can be expanded/collapsed.
   background-color: var(--sklearn-color-unfitted-level-0);
 }
 
-#sk-container-id-1 div.sk-toggleable__content.fitted pre {
+#sk-container-id-25 div.sk-toggleable__content.fitted pre {
   /* unfitted */
   background-color: var(--sklearn-color-fitted-level-0);
 }
 
-#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {
+#sk-container-id-25 input.sk-toggleable__control:checked~div.sk-toggleable__content {
   /* Expand drop-down */
   max-height: 200px;
   max-width: 100%;
   overflow: auto;
 }
 
-#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {
+#sk-container-id-25 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {
   content: "▾";
 }
 
 /* Pipeline/ColumnTransformer-specific style */
 
-#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {
+#sk-container-id-25 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {
   color: var(--sklearn-color-text);
   background-color: var(--sklearn-color-unfitted-level-2);
 }
 
-#sk-container-id-1 div.sk-label.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+#sk-container-id-25 div.sk-label.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
   background-color: var(--sklearn-color-fitted-level-2);
 }
 
 /* Estimator-specific style */
 
 /* Colorize estimator box */
-#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {
+#sk-container-id-25 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {
   /* unfitted */
   background-color: var(--sklearn-color-unfitted-level-2);
 }
 
-#sk-container-id-1 div.sk-estimator.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+#sk-container-id-25 div.sk-estimator.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-2);
 }
 
-#sk-container-id-1 div.sk-label label.sk-toggleable__label,
-#sk-container-id-1 div.sk-label label {
+#sk-container-id-25 div.sk-label label.sk-toggleable__label,
+#sk-container-id-25 div.sk-label label {
   /* The background is the default theme color */
   color: var(--sklearn-color-text-on-default-background);
 }
 
 /* On hover, darken the color of the background */
-#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {
+#sk-container-id-25 div.sk-label:hover label.sk-toggleable__label {
   color: var(--sklearn-color-text);
   background-color: var(--sklearn-color-unfitted-level-2);
 }
 
 /* Label box, darken color on hover, fitted */
-#sk-container-id-1 div.sk-label.fitted:hover label.sk-toggleable__label.fitted {
+#sk-container-id-25 div.sk-label.fitted:hover label.sk-toggleable__label.fitted {
   color: var(--sklearn-color-text);
   background-color: var(--sklearn-color-fitted-level-2);
 }
 
 /* Estimator label */
 
-#sk-container-id-1 div.sk-label label {
+#sk-container-id-25 div.sk-label label {
   font-family: monospace;
   font-weight: bold;
   display: inline-block;
   line-height: 1.2em;
 }
 
-#sk-container-id-1 div.sk-label-container {
+#sk-container-id-25 div.sk-label-container {
   text-align: center;
 }
 
 /* Estimator-specific */
-#sk-container-id-1 div.sk-estimator {
+#sk-container-id-25 div.sk-estimator {
   font-family: monospace;
   border: 1px dotted var(--sklearn-color-border-box);
   border-radius: 0.25em;
@@ -837,18 +837,18 @@ clickable and can be expanded/collapsed.
   background-color: var(--sklearn-color-unfitted-level-0);
 }
 
-#sk-container-id-1 div.sk-estimator.fitted {
+#sk-container-id-25 div.sk-estimator.fitted {
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-0);
 }
 
 /* on hover */
-#sk-container-id-1 div.sk-estimator:hover {
+#sk-container-id-25 div.sk-estimator:hover {
   /* unfitted */
   background-color: var(--sklearn-color-unfitted-level-2);
 }
 
-#sk-container-id-1 div.sk-estimator.fitted:hover {
+#sk-container-id-25 div.sk-estimator.fitted:hover {
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-2);
 }
@@ -936,7 +936,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 
 /* "?"-specific style due to the `<a>` HTML tag */
 
-#sk-container-id-1 a.estimator_doc_link {
+#sk-container-id-25 a.estimator_doc_link {
   float: right;
   font-size: 1rem;
   line-height: 1em;
@@ -951,29 +951,29 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
   border: var(--sklearn-color-unfitted-level-1) 1pt solid;
 }
 
-#sk-container-id-1 a.estimator_doc_link.fitted {
+#sk-container-id-25 a.estimator_doc_link.fitted {
   /* fitted */
   border: var(--sklearn-color-fitted-level-1) 1pt solid;
   color: var(--sklearn-color-fitted-level-1);
 }
 
 /* On hover */
-#sk-container-id-1 a.estimator_doc_link:hover {
+#sk-container-id-25 a.estimator_doc_link:hover {
   /* unfitted */
   background-color: var(--sklearn-color-unfitted-level-3);
   color: var(--sklearn-color-background);
   text-decoration: none;
 }
 
-#sk-container-id-1 a.estimator_doc_link.fitted:hover {
+#sk-container-id-25 a.estimator_doc_link.fitted:hover {
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-3);
 }
-</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>KNeighborsClassifier(n_neighbors=15)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked=""><label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>KNeighborsClassifier</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.neighbors.KNeighborsClassifier.html">?<span>Documentation for KNeighborsClassifier</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted"><pre>KNeighborsClassifier(n_neighbors=15)</pre></div> </div></div></div></div>
+</style><div id="sk-container-id-25" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>KNeighborsClassifier(n_neighbors=15)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-25" type="checkbox" checked=""><label for="sk-estimator-id-25" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>KNeighborsClassifier</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.neighbors.KNeighborsClassifier.html">?<span>Documentation for KNeighborsClassifier</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted"><pre>KNeighborsClassifier(n_neighbors=15)</pre></div> </div></div></div></div>
 </div>
 </div>
 <p>Aquí tenemos un conjunto de observaciones nuevas:</p>
-<div id="2162faf1" class="cell" data-execution_count="4">
+<div id="ea6fbe6d" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a>X_new <span class="op">=</span> np.array([[<span class="fl">56.8</span>, <span class="fl">17.5</span>],[<span class="fl">24.4</span>, <span class="fl">24.1</span>], [<span class="fl">50.1</span>, <span class="fl">10.9</span>]])</span>
 <span id="cb6-2"><a href=""></a><span class="bu">print</span>(X_new.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -981,7 +981,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <p>Vemos que X_new tiene 3 filas (observaciones) y 2 columnas (características). Utilizamos el método <code>.predict()</code> del clasificador y le pasamos los datos no vistos como una matriz numpy que contiene características en columnas y observaciones en filas:</p>
-<div id="a9c46e33" class="cell" data-execution_count="5">
+<div id="65e206bd" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href=""></a>predicciones <span class="op">=</span> knn.predict(X_new)</span>
 <span id="cb8-2"><a href=""></a><span class="bu">print</span>(<span class="st">'predictiones: </span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(predicciones))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -996,7 +996,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </ul>
 <p><strong>Otro caso</strong></p>
 <p>Ahora trataremos <code>account_length</code> y <code>customer_service_calls</code> como características porque la antiguedad de la cuenta indica fidelidad del cliente, y las llamadas frecuentes al servicio de atención al cliente pueden ser señal de insatisfacción, y ambos piueden ser buenos predictores de la rotación.</p>
-<div id="9ca374fd" class="cell" data-execution_count="6">
+<div id="42844058" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href=""></a>X <span class="op">=</span> churn_df[[<span class="st">"account_length"</span>, <span class="st">"customer_service_calls"</span>]].values</span>
 <span id="cb10-2"><a href=""></a>y <span class="op">=</span> churn_df[[<span class="st">"churn"</span>]].values</span>
 <span id="cb10-3"><a href=""></a></span>
@@ -1007,7 +1007,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <span id="cb10-8"><a href=""></a>y_pred <span class="op">=</span> knn.predict(X_new)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Como podemos notar instanciamos el modelo con 6 vecinos. Los resultados de las predicciones con estas nuevas características y los 6 vecinos son:</p>
-<div id="47cd1e26" class="cell" data-execution_count="7">
+<div id="feebdc12" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href=""></a><span class="bu">print</span>(<span class="st">'predicciones: </span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(y_pred))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>predicciones: [0 1 0]</code></pre>
@@ -1032,7 +1032,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <p><img data-src="img/g_disp6.png" width="353"></p>
 </div><div class="column" style="font-size:16px">
 <p>Para ello importamos <code>train_test_split</code> y le pasamos nuestras características y objetivos</p>
-<div id="68e9b2ca" class="cell" data-execution_count="8">
+<div id="a2a18270" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href=""></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
 <span id="cb13-2"><a href=""></a>X <span class="op">=</span> churn_df[[<span class="st">"total_day_charge"</span>, <span class="st">"total_eve_charge"</span>]].values</span>
 <span id="cb13-3"><a href=""></a>y <span class="op">=</span> churn_df[[<span class="st">"churn"</span>]].values</span>
@@ -1042,7 +1042,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <p>normalmente utilizamos entre un 20% o 30% de nuestros datos como conjunto de prueba, al fijar el argumento <code>test_size = 0.3</code> utilizamos el 30%, el argumento <code>random_state = 21</code> establece una semilla para un generador de números aleatorios que divide los datos, utilizar el mismo número al repetir este paso nos permite reproducir la división exacta y nuestros resultados posteriores. Se recomienda garantizar que nuestra división refleje la proporción de etiquetas en nuestros datos, por tanto, si la rotación se produce en el 10% de las observaciones queremos que el 10% de las etiquetas de los conjuntos de entrenamiento y prueba representen la rotación, esto se consigue al establecer <code>stratify = y</code>.</p>
 <p><strong>train_test_split()</strong> devuelve 4 matrices los datos de entrenamiento, los datos de prueba, las etiquetas de entrenamiento y las etiquetas de pruebas (X_train, X_test, y_train, y_test).</p>
 <p>Ahora, instanciamos un modelo KNN y lo ajustamos a los datos de entrenamiento. Para comprobar la precisión utilizamos el método <code>.score()</code></p>
-<div id="06c12d9e" class="cell" data-execution_count="9">
+<div id="4dad8c89" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href=""></a>knn <span class="op">=</span> KNeighborsClassifier(n_neighbors <span class="op">=</span> <span class="dv">6</span>)</span>
 <span id="cb14-2"><a href=""></a>knn.fit(X_train, y_train)</span>
 <span id="cb14-3"><a href=""></a><span class="bu">print</span>(knn.score(X_test, y_test))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1064,7 +1064,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <p>También, podemos interpretar <span class="math inline">\(k\)</span> mediante una curva de complejidad del modelo.</p>
 </div><div class="column" style="font-size:17px">
 <p>Con un modelo KNN podemos calcular la precisión en los conjuntos de entrenamiento y prueba, utilizado valores <span class="math inline">\(k-incrementales\)</span>. Y representar los resultados de forma gráfica, creamos diccionarios vacios para almacenar las precisiones de entramiento y prueba y una matriz que contiene un rango de valores <span class="math inline">\(k\)</span>, construyendo varios modelos que utilizan un número diferente de vecinos.</p>
-<div id="4f9ccb50" class="cell" data-execution_count="10">
+<div id="527c890c" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href=""></a>train_accuracies <span class="op">=</span> {}</span>
 <span id="cb16-2"><a href=""></a>test_accuracies <span class="op">=</span> {}</span>
 <span id="cb16-3"><a href=""></a>neighbors <span class="op">=</span> np.arange(<span class="dv">1</span>,<span class="dv">26</span>)</span>
@@ -1081,7 +1081,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <h2></h2>
 <div class="columns">
 <div class="column" style="font-size:15px">
-<div id="cfde3ca9" class="cell" data-execution_count="11">
+<div id="3603447b" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href=""></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb17-2"><a href=""></a>plt.figure(figsize <span class="op">=</span> (<span class="dv">8</span>,<span class="dv">6</span>))</span>
 <span id="cb17-3"><a href=""></a>plt.title(<span class="st">"KNN: Número variable de vecinos"</span>)</span>
@@ -1114,7 +1114,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <div class="columns">
 <div class="column" style="font-size:15px">
 <p>En las tareas de regresión la variable objetivo suele tener valores continuos, como el PIB, el precio de una vivienda, etc. Para conceptualizar los problemas de regresión, utilicemos un conjunto de datos sobre la salud de las mujeres para predecir los niveles de glucosa en sangre.</p>
-<div id="95847885" class="cell" data-execution_count="12">
+<div id="35af94b4" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb18-2"><a href=""></a>diabetes_df <span class="op">=</span> pd.read_csv(<span class="st">"diabetes_clean.csv"</span>)</span>
 <span id="cb18-3"><a href=""></a><span class="bu">print</span>(diabetes_df.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1147,7 +1147,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div><div class="column" style="font-size:17px">
 <h3 id="crear-arreglos-de-características-y-objetivos">Crear arreglos de características y objetivos</h3>
 <p>Recordemos que scikit-learn requiere características y valores objetivos en variables distintas <span class="math inline">\(X\)</span> e <span class="math inline">\(y\)</span>. Para utilizar todas las características de nuestro conjunto de datos eliminamos nuestro objetivo.</p>
-<div id="045ba354" class="cell" data-execution_count="13">
+<div id="436dfd11" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href=""></a>X <span class="op">=</span> diabetes_df.drop(<span class="st">"glucose"</span>, axis <span class="op">=</span> <span class="dv">1</span>).values</span>
 <span id="cb20-2"><a href=""></a>y <span class="op">=</span> diabetes_df[<span class="st">"glucose"</span>].values</span>
 <span id="cb20-3"><a href=""></a><span class="bu">print</span>(<span class="bu">type</span>(X), <span class="bu">type</span>(y))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1156,7 +1156,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <h3 id="predicción-de-niveles-de-glucosa-en-sangre-apartir-de-una-única-característica-el-bmi.">Predicción de niveles de glucosa en sangre apartir de una única característica el bmi.</h3>
-<div id="acc19df9" class="cell" data-execution_count="14">
+<div id="3737f4b4" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href=""></a>X_bmi <span class="op">=</span> X[:, <span class="dv">4</span>]</span>
 <span id="cb22-2"><a href=""></a><span class="bu">print</span>(y.shape, X_bmi.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1164,7 +1164,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <p>Al comprobar la forma de <span class="math inline">\(X_{bmi}\)</span> e <span class="math inline">\(y\)</span> vemos que ambas son matrices unidimencionales, esto esta bien para <span class="math inline">\(y\)</span>. Pero nuestras características deben estar formateadas como una matriz bidimensional para que scikit-learn las acepte, para esto:</p>
-<div id="b20b62a3" class="cell" data-execution_count="15">
+<div id="d6029278" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href=""></a>X_bmi <span class="op">=</span> X_bmi.reshape(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>)</span>
 <span id="cb24-2"><a href=""></a><span class="bu">print</span>(X_bmi.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1178,7 +1178,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <h2>Plotting glucose vs bmi</h2>
 <div class="columns">
 <div class="column" style="font-size:15px">
-<div id="b9898381" class="cell" data-execution_count="16">
+<div id="1db573b5" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href=""></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb26-2"><a href=""></a>plt.scatter(X_bmi, y)</span>
 <span id="cb26-3"><a href=""></a>plt.ylabel(<span class="st">"Glucosa en la sangre (mg/dl)"</span>)</span>
@@ -1196,7 +1196,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div><div class="column" style="font-size:15px">
 <h3 id="fitting-modelo-de-regresión-lineal">Fitting modelo de regresión lineal</h3>
 <p>Este modelo llamado regresión lineal ajusta una linea recta a nuestros datos. Lo veremos más a detalle posteriormente, pero antes veamos como ajustarla y como trazar predicciones.</p>
-<div id="534bb2e7" class="cell" data-execution_count="17">
+<div id="80cefdf9" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href=""></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LinearRegression</span>
 <span id="cb27-2"><a href=""></a>reg <span class="op">=</span> LinearRegression()</span>
 <span id="cb27-3"><a href=""></a>reg.fit(X_bmi, y)</span>
@@ -1214,6 +1214,552 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 </div>
+</div></div>
+</section>
+<section id="conceptos-básicos-de-regresión-lineal" class="slide level2">
+<h2>Conceptos Básicos de Regresión Lineal</h2>
+<div class="columns">
+<div class="column" style="font-size:15px">
+<p><strong>Cómo funciona la regresión líneal?</strong></p>
+<p>Queremos ajustar una recta a los datos y en dos dimensiones esto toma la forma de</p>
+<p><span class="math display">\[y = ax + b\]</span></p>
+<ul>
+<li>El uso de una sola característica se conoce como regresión lineal simple, en la que <span class="math inline">\(y\)</span> es la variable de respuesta, <span class="math inline">\(x\)</span> es la característica y <span class="math inline">\(a,b\)</span> son los parámetros del modelo, así mismo <span class="math inline">\(a,b\)</span> también se denominan coeficientes del modelo o pendiente <span class="math inline">\((a)\)</span> y coeficiente <span class="math inline">\((b)\)</span>.</li>
+</ul>
+<p><strong>Cómo elegimos con precisión valores para</strong> <span class="math inline">\(a\)</span> <strong>y</strong> <span class="math inline">\(b\)</span><strong>?</strong></p>
+<ul>
+<li><p>Podemos definir una función de error (o función de pérdida o de coste) para cualquier recta dada,</p></li>
+<li><p>y luego, elegir la recta que minímice esta función.</p></li>
+<li><p>Error function = loss function = cost function</p></li>
+</ul>
+<p>Visualicemos una función de loss o pérdida utilizando este gráfico de dispersión:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/g_disp8.png" class="quarto-figure quarto-figure-center" width="235"></p>
+</figure>
+</div>
+</div><div class="column" style="font-size:15px">
+<p>Queremos que la línea este lo más cerca posible de las observaciones</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/g_disp9.png" class="quarto-figure quarto-figure-center" width="200"></p>
+</figure>
+</div>
+<p>por tanto, queremos minímizar la distancia vertical entre el ajuste y los datos, entonces para cada observación calculamos la distancia vertical entre esta y la línea:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/g_disp11.png" class="quarto-figure quarto-figure-center" width="200"></p>
+</figure>
+</div>
+<p>dicha distancia se denomina <strong><em>residuo</em></strong>. Podríamos intentar minímizar la suma de los residuos, pero entonces cada residuo positivo anularia cada residuo negativo. Para evitarlo elevamos al cuadrado los residuos:</p>
+<p><span class="math display">\[
+RSS = \sum_{i=1}^n (y_i - \hat{y_i})^2 \longrightarrow minímos~cuadrados~ordinarios
+\]</span></p>
+</div></div>
+</section>
+<section id="conceptos-básico-de-regresión-lineal" class="slide level2">
+<h2>Conceptos Básico de Regresión Lineal</h2>
+<div class="columns">
+<div class="column" style="font-size:15px">
+<p><strong>Regresión lineal en dimensiones superiores</strong></p>
+<p>Cuando tenemos dos características <span class="math inline">\(x_1,x_2\)</span> y un objetivo <span class="math inline">\(y\)</span> la recta adopta la forma:</p>
+<p><span class="math display">\[
+y = a_1x_1 + a_2x_2 + b
+\]</span></p>
+<ul>
+<li><p>Cuando se añaden más características se le conoce como <strong><em>regresión lineal múltiple.</em></strong></p>
+<p><span class="math display">\[
+y = a_1x1 + a_2x_2 + . . . + a_nx_n +b
+\]</span></p></li>
+</ul>
+<p>Ajustar un modelo de regresión lineal múltiple significa especificar un coeficiente <span class="math inline">\(a_n\)</span>, para <span class="math inline">\(n\)</span> número de características y <span class="math inline">\(b\)</span>.</p>
+<p>Para los modelos de regresión lineal múltiple <code>scikit-learn</code> espera una variable cada uno para los valores de característica y objetivo.</p>
+<p><strong>Simulando modelo de regresión lineal múltiple</strong></p>
+<p>Vamos a realizar una regresión lineal para predecir los niveles de glucosa en sangre, utilizando todas las características del conjunto de datos de la diabetes.</p>
+<div id="d413dcd7" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href=""></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb28-2"><a href=""></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LinearRegression</span>
+<span id="cb28-3"><a href=""></a></span>
+<span id="cb28-4"><a href=""></a><span class="co"># Dividimos los datos en Train y test</span></span>
+<span id="cb28-5"><a href=""></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X,y,test_size<span class="op">=</span><span class="fl">0.3</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb28-6"><a href=""></a></span>
+<span id="cb28-7"><a href=""></a><span class="co"># Instanciamos el modelo </span></span>
+<span id="cb28-8"><a href=""></a>reg_all <span class="op">=</span> LinearRegression()</span>
+<span id="cb28-9"><a href=""></a></span>
+<span id="cb28-10"><a href=""></a><span class="co"># Ajustamos el modelo en el conjunto de entrenamiento</span></span>
+<span id="cb28-11"><a href=""></a>reg_all.fit(X_train, y_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="256">
+<style>#sk-container-id-26 {
+  /* Definition of color scheme common for light and dark mode */
+  --sklearn-color-text: #000;
+  --sklearn-color-text-muted: #666;
+  --sklearn-color-line: gray;
+  /* Definition of color scheme for unfitted estimators */
+  --sklearn-color-unfitted-level-0: #fff5e6;
+  --sklearn-color-unfitted-level-1: #f6e4d2;
+  --sklearn-color-unfitted-level-2: #ffe0b3;
+  --sklearn-color-unfitted-level-3: chocolate;
+  /* Definition of color scheme for fitted estimators */
+  --sklearn-color-fitted-level-0: #f0f8ff;
+  --sklearn-color-fitted-level-1: #d4ebff;
+  --sklearn-color-fitted-level-2: #b3dbfd;
+  --sklearn-color-fitted-level-3: cornflowerblue;
+
+  /* Specific color for light theme */
+  --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
+  --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, white)));
+  --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
+  --sklearn-color-icon: #696969;
+
+  @media (prefers-color-scheme: dark) {
+    /* Redefinition of color scheme for dark theme */
+    --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
+    --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, #111)));
+    --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
+    --sklearn-color-icon: #878787;
+  }
+}
+
+#sk-container-id-26 {
+  color: var(--sklearn-color-text);
+}
+
+#sk-container-id-26 pre {
+  padding: 0;
+}
+
+#sk-container-id-26 input.sk-hidden--visually {
+  border: 0;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+#sk-container-id-26 div.sk-dashed-wrapped {
+  border: 1px dashed var(--sklearn-color-line);
+  margin: 0 0.4em 0.5em 0.4em;
+  box-sizing: border-box;
+  padding-bottom: 0.4em;
+  background-color: var(--sklearn-color-background);
+}
+
+#sk-container-id-26 div.sk-container {
+  /* jupyter's `normalize.less` sets `[hidden] { display: none; }`
+     but bootstrap.min.css set `[hidden] { display: none !important; }`
+     so we also need the `!important` here to be able to override the
+     default hidden behavior on the sphinx rendered scikit-learn.org.
+     See: https://github.com/scikit-learn/scikit-learn/issues/21755 */
+  display: inline-block !important;
+  position: relative;
+}
+
+#sk-container-id-26 div.sk-text-repr-fallback {
+  display: none;
+}
+
+div.sk-parallel-item,
+div.sk-serial,
+div.sk-item {
+  /* draw centered vertical line to link estimators */
+  background-image: linear-gradient(var(--sklearn-color-text-on-default-background), var(--sklearn-color-text-on-default-background));
+  background-size: 2px 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+/* Parallel-specific style estimator block */
+
+#sk-container-id-26 div.sk-parallel-item::after {
+  content: "";
+  width: 100%;
+  border-bottom: 2px solid var(--sklearn-color-text-on-default-background);
+  flex-grow: 1;
+}
+
+#sk-container-id-26 div.sk-parallel {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  background-color: var(--sklearn-color-background);
+  position: relative;
+}
+
+#sk-container-id-26 div.sk-parallel-item {
+  display: flex;
+  flex-direction: column;
+}
+
+#sk-container-id-26 div.sk-parallel-item:first-child::after {
+  align-self: flex-end;
+  width: 50%;
+}
+
+#sk-container-id-26 div.sk-parallel-item:last-child::after {
+  align-self: flex-start;
+  width: 50%;
+}
+
+#sk-container-id-26 div.sk-parallel-item:only-child::after {
+  width: 0;
+}
+
+/* Serial-specific style estimator block */
+
+#sk-container-id-26 div.sk-serial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--sklearn-color-background);
+  padding-right: 1em;
+  padding-left: 1em;
+}
+
+
+/* Toggleable style: style used for estimator/Pipeline/ColumnTransformer box that is
+clickable and can be expanded/collapsed.
+- Pipeline and ColumnTransformer use this feature and define the default style
+- Estimators will overwrite some part of the style using the `sk-estimator` class
+*/
+
+/* Pipeline and ColumnTransformer style (default) */
+
+#sk-container-id-26 div.sk-toggleable {
+  /* Default theme specific background. It is overwritten whether we have a
+  specific estimator or a Pipeline/ColumnTransformer */
+  background-color: var(--sklearn-color-background);
+}
+
+/* Toggleable label */
+#sk-container-id-26 label.sk-toggleable__label {
+  cursor: pointer;
+  display: flex;
+  width: 100%;
+  margin-bottom: 0;
+  padding: 0.5em;
+  box-sizing: border-box;
+  text-align: center;
+  align-items: start;
+  justify-content: space-between;
+  gap: 0.5em;
+}
+
+#sk-container-id-26 label.sk-toggleable__label .caption {
+  font-size: 0.6rem;
+  font-weight: lighter;
+  color: var(--sklearn-color-text-muted);
+}
+
+#sk-container-id-26 label.sk-toggleable__label-arrow:before {
+  /* Arrow on the left of the label */
+  content: "▸";
+  float: left;
+  margin-right: 0.25em;
+  color: var(--sklearn-color-icon);
+}
+
+#sk-container-id-26 label.sk-toggleable__label-arrow:hover:before {
+  color: var(--sklearn-color-text);
+}
+
+/* Toggleable content - dropdown */
+
+#sk-container-id-26 div.sk-toggleable__content {
+  max-height: 0;
+  max-width: 0;
+  overflow: hidden;
+  text-align: left;
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-26 div.sk-toggleable__content.fitted {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+#sk-container-id-26 div.sk-toggleable__content pre {
+  margin: 0.2em;
+  border-radius: 0.25em;
+  color: var(--sklearn-color-text);
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-26 div.sk-toggleable__content.fitted pre {
+  /* unfitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+#sk-container-id-26 input.sk-toggleable__control:checked~div.sk-toggleable__content {
+  /* Expand drop-down */
+  max-height: 200px;
+  max-width: 100%;
+  overflow: auto;
+}
+
+#sk-container-id-26 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {
+  content: "▾";
+}
+
+/* Pipeline/ColumnTransformer-specific style */
+
+#sk-container-id-26 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-26 div.sk-label.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Estimator-specific style */
+
+/* Colorize estimator box */
+#sk-container-id-26 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-26 div.sk-estimator.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+#sk-container-id-26 div.sk-label label.sk-toggleable__label,
+#sk-container-id-26 div.sk-label label {
+  /* The background is the default theme color */
+  color: var(--sklearn-color-text-on-default-background);
+}
+
+/* On hover, darken the color of the background */
+#sk-container-id-26 div.sk-label:hover label.sk-toggleable__label {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+/* Label box, darken color on hover, fitted */
+#sk-container-id-26 div.sk-label.fitted:hover label.sk-toggleable__label.fitted {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Estimator label */
+
+#sk-container-id-26 div.sk-label label {
+  font-family: monospace;
+  font-weight: bold;
+  display: inline-block;
+  line-height: 1.2em;
+}
+
+#sk-container-id-26 div.sk-label-container {
+  text-align: center;
+}
+
+/* Estimator-specific */
+#sk-container-id-26 div.sk-estimator {
+  font-family: monospace;
+  border: 1px dotted var(--sklearn-color-border-box);
+  border-radius: 0.25em;
+  box-sizing: border-box;
+  margin-bottom: 0.5em;
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-26 div.sk-estimator.fitted {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+/* on hover */
+#sk-container-id-26 div.sk-estimator:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-26 div.sk-estimator.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Specification for estimator info (e.g. "i" and "?") */
+
+/* Common style for "i" and "?" */
+
+.sk-estimator-doc-link,
+a:link.sk-estimator-doc-link,
+a:visited.sk-estimator-doc-link {
+  float: right;
+  font-size: smaller;
+  line-height: 1em;
+  font-family: monospace;
+  background-color: var(--sklearn-color-background);
+  border-radius: 1em;
+  height: 1em;
+  width: 1em;
+  text-decoration: none !important;
+  margin-left: 0.5em;
+  text-align: center;
+  /* unfitted */
+  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
+  color: var(--sklearn-color-unfitted-level-1);
+}
+
+.sk-estimator-doc-link.fitted,
+a:link.sk-estimator-doc-link.fitted,
+a:visited.sk-estimator-doc-link.fitted {
+  /* fitted */
+  border: var(--sklearn-color-fitted-level-1) 1pt solid;
+  color: var(--sklearn-color-fitted-level-1);
+}
+
+/* On hover */
+div.sk-estimator:hover .sk-estimator-doc-link:hover,
+.sk-estimator-doc-link:hover,
+div.sk-label-container:hover .sk-estimator-doc-link:hover,
+.sk-estimator-doc-link:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+div.sk-estimator.fitted:hover .sk-estimator-doc-link.fitted:hover,
+.sk-estimator-doc-link.fitted:hover,
+div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
+.sk-estimator-doc-link.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+/* Span, style for the box shown on hovering the info icon */
+.sk-estimator-doc-link span {
+  display: none;
+  z-index: 9999;
+  position: relative;
+  font-weight: normal;
+  right: .2ex;
+  padding: .5ex;
+  margin: .5ex;
+  width: min-content;
+  min-width: 20ex;
+  max-width: 50ex;
+  color: var(--sklearn-color-text);
+  box-shadow: 2pt 2pt 4pt #999;
+  /* unfitted */
+  background: var(--sklearn-color-unfitted-level-0);
+  border: .5pt solid var(--sklearn-color-unfitted-level-3);
+}
+
+.sk-estimator-doc-link.fitted span {
+  /* fitted */
+  background: var(--sklearn-color-fitted-level-0);
+  border: var(--sklearn-color-fitted-level-3);
+}
+
+.sk-estimator-doc-link:hover span {
+  display: block;
+}
+
+/* "?"-specific style due to the `<a>` HTML tag */
+
+#sk-container-id-26 a.estimator_doc_link {
+  float: right;
+  font-size: 1rem;
+  line-height: 1em;
+  font-family: monospace;
+  background-color: var(--sklearn-color-background);
+  border-radius: 1rem;
+  height: 1rem;
+  width: 1rem;
+  text-decoration: none;
+  /* unfitted */
+  color: var(--sklearn-color-unfitted-level-1);
+  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
+}
+
+#sk-container-id-26 a.estimator_doc_link.fitted {
+  /* fitted */
+  border: var(--sklearn-color-fitted-level-1) 1pt solid;
+  color: var(--sklearn-color-fitted-level-1);
+}
+
+/* On hover */
+#sk-container-id-26 a.estimator_doc_link:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+#sk-container-id-26 a.estimator_doc_link.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-3);
+}
+</style><div id="sk-container-id-26" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LinearRegression()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-26" type="checkbox" checked=""><label for="sk-estimator-id-26" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>LinearRegression</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.linear_model.LinearRegression.html">?<span>Documentation for LinearRegression</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted"><pre>LinearRegression()</pre></div> </div></div></div></div>
+</div>
+</div>
+</div><div class="column" style="font-size:15px">
+<div id="71196dd4" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href=""></a><span class="co"># Predecimos en el conjunto de prueba </span></span>
+<span id="cb29-2"><a href=""></a>y_pred <span class="op">=</span> reg_all.predict(X_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Ten en cuenta que la regresión lineal en scikit-learn realiza RSS.</p>
+<p><span class="math inline">\(R^2\)</span>: es la métrica por defecto de la regresión lineal, que cuntifica la cantidad de varianza de la variable objetivo que explican las características, los valores pueden ir de 0 a 1.</p>
+<ul>
+<li><strong>1:</strong> significa que las características explican completamente la variabnza del objetivo.</li>
+</ul>
+<p>Aquí tienes dos gráficos que visualizan el <span class="math inline">\(R^2\)</span> alto y bajo respectivamente.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/g_disp12.png" class="quarto-figure quarto-figure-center" width="491"></p>
+</figure>
+</div>
+<div id="f5b94eb2" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href=""></a>reg_all.score(X_test, y_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="258">
+<pre><code>0.28280468810375115</code></pre>
+</div>
+</div>
+<p>Aquí las características solo explican al rededor del 28% de la varianza del nivel de glucosa en sangre.</p>
+</div></div>
+</section>
+<section id="conceptos-básicos-de-regresión-lineal-1" class="slide level2">
+<h2>Conceptos Básicos de Regresión Lineal</h2>
+<div class="columns">
+<div class="column" style="font-size:15px">
+<p><strong>Error cuadrático medio o MSE</strong></p>
+<p>Otro forma de evaluar el rendimiento de un modelo de regresíon es tomar la medía de la suma residual de cuadrados.</p>
+<p><span class="math display">\[
+MSE = \frac{1}{n}\sum_{i=1}^n (y_i - \hat{y_i})^2
+\]</span></p>
+<ul>
+<li><p>Esto se conoce como error cuadrático medio o MSE.</p></li>
+<li><p>El MSE se mide en unidades de nuestra variable objetivo al cuadrado. Por ejemplo, si un modelo predice un valor en dólares el MSE estará en dólares al cuadrado. Para convertirlo a dólares podemos tomar la raíz cuadrada <span class="math display">\[RMSE = \sqrt{MSE}\]</span></p></li>
+</ul>
+<p>Veamos el calculo con scikit-learn:</p>
+<div id="026a2921" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href=""></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> mean_squared_error</span>
+<span id="cb32-2"><a href=""></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb32-3"><a href=""></a></span>
+<span id="cb32-4"><a href=""></a>mse <span class="op">=</span> mean_squared_error(y_test, y_pred)</span>
+<span id="cb32-5"><a href=""></a>rmse <span class="op">=</span> np.sqrt(mse)</span>
+<span id="cb32-6"><a href=""></a>rmse</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="259">
+<pre><code>26.341459582232265</code></pre>
+</div>
+</div>
+<p>Esto nos dice que el modelo tiene un error medio para los niveles de glucosa en sangre de unos 26 mg/dl.</p>
+</div><div class="column" style="font-size:15px">
+
 </div></div>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
