@@ -1,0 +1,24 @@
+"0","import matplotlib.pyplot as plt"
+"0","plt.figure(figsize = (8,6))"
+"1","<Figure size 800x600 with 0 Axes>
+"
+"0","plt.title(""KNN: Número variable de vecinos"")"
+"1","Text(0.5, 1.0, 'KNN: Número variable de vecinos')
+"
+"0","plt.plot(neighbors, train_accuracies.values(), label = ""Training Accuracy"")"
+"1","[<matplotlib.lines.Line2D object at 0x30cd159a0>]
+"
+"0","plt.plot(neighbors, test_accuracies.values(), label = ""Testing Accuracy"")"
+"1","[<matplotlib.lines.Line2D object at 0x30cd9a330>]
+"
+"0","plt.legend()"
+"1","<matplotlib.legend.Legend object at 0x30cd17a40>
+"
+"0","plt.xlabel(""Numero de Vecinos"")"
+"1","Text(0.5, 0, 'Numero de Vecinos')
+"
+"0","plt.ylabel(""Accuracy"")"
+"1","Text(0, 0.5, 'Accuracy')
+"
+"0","plt.show()"
+"0",""

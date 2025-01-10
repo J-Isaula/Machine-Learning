@@ -1,0 +1,4 @@
+"0","X_bmi = X_bmi.reshape(-1,1)"
+"0","print(X_bmi.shape)"
+"1","(768, 1)
+"

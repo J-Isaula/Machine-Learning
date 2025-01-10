@@ -1,0 +1,112 @@
+"0","train_accuracies = {}"
+"0","test_accuracies = {}"
+"0","neighbors = np.arange(1,26)"
+"0","for neighbor in neighbors:"
+"0","  knn = KNeighborsClassifier(n_neighbors = neighbor) "
+"0","  knn.fit(X_train, y_train)"
+"0","  train_accuracies[neighbor] = knn.score(X_train, y_train)"
+"0","  test_accuracies[neighbor] = knn.score(X_test, y_test)"
+"0",""
+"2","/Users/juanisaulamejia/opt/anaconda3/lib/python3.12/site-packages/sklearn/neighbors/_classification.py:239: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  return self._fit(X, y)
+"
+"2","/Users/juanisaulamejia/opt/anaconda3/lib/python3.12/site-packages/sklearn/neighbors/_classification.py:239: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  return self._fit(X, y)
+"
+"2","/Users/juanisaulamejia/opt/anaconda3/lib/python3.12/site-packages/sklearn/neighbors/_classification.py:239: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  return self._fit(X, y)
+"
+"2","/Users/juanisaulamejia/opt/anaconda3/lib/python3.12/site-packages/sklearn/neighbors/_classification.py:239: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  return self._fit(X, y)
+"
+"2","/Users/juanisaulamejia/opt/anaconda3/lib/python3.12/site-packages/sklearn/neighbors/_classification.py:239: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  return self._fit(X, y)
+"
+"2","/Users/juanisaulamejia/opt/anaconda3/lib/python3.12/site-packages/sklearn/neighbors/_classification.py:239: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  return self._fit(X, y)
+"
+"2","/Users/juanisaulamejia/opt/anaconda3/lib/python3.12/site-packages/sklearn/neighbors/_classification.py:239: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  return self._fit(X, y)
+"
+"2","/Users/juanisaulamejia/opt/anaconda3/lib/python3.12/site-packages/sklearn/neighbors/_classification.py:239: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  return self._fit(X, y)
+"
+"2","/Users/juanisaulamejia/opt/anaconda3/lib/python3.12/site-packages/sklearn/neighbors/_classification.py:239: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  return self._fit(X, y)
+"
+"2","/Users/juanisaulamejia/opt/anaconda3/lib/python3.12/site-packages/sklearn/neighbors/_classification.py:239: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  return self._fit(X, y)
+"
+"1","KNeighborsClassifier(n_neighbors=1)
+KNeighborsClassifier(n_neighbors=2)
+KNeighborsClassifier(n_neighbors=3)
+KNeighborsClassifier(n_neighbors=4)
+KNeighborsClassifier()
+KNeighborsClassifier(n_neighbors=6)
+KNeighborsClassifier(n_neighbors=7)
+KNeighborsClassifier(n_neighbors=8)
+KNeighborsClassifier(n_neighbors=9)
+KNeighborsClassifier(n_neighbors=10)
+"
+"2","/Users/juanisaulamejia/opt/anaconda3/lib/python3.12/site-packages/sklearn/neighbors/_classification.py:239: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  return self._fit(X, y)
+"
+"2","/Users/juanisaulamejia/opt/anaconda3/lib/python3.12/site-packages/sklearn/neighbors/_classification.py:239: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  return self._fit(X, y)
+"
+"2","/Users/juanisaulamejia/opt/anaconda3/lib/python3.12/site-packages/sklearn/neighbors/_classification.py:239: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  return self._fit(X, y)
+"
+"2","/Users/juanisaulamejia/opt/anaconda3/lib/python3.12/site-packages/sklearn/neighbors/_classification.py:239: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  return self._fit(X, y)
+"
+"2","/Users/juanisaulamejia/opt/anaconda3/lib/python3.12/site-packages/sklearn/neighbors/_classification.py:239: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  return self._fit(X, y)
+"
+"2","/Users/juanisaulamejia/opt/anaconda3/lib/python3.12/site-packages/sklearn/neighbors/_classification.py:239: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  return self._fit(X, y)
+"
+"2","/Users/juanisaulamejia/opt/anaconda3/lib/python3.12/site-packages/sklearn/neighbors/_classification.py:239: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  return self._fit(X, y)
+"
+"2","/Users/juanisaulamejia/opt/anaconda3/lib/python3.12/site-packages/sklearn/neighbors/_classification.py:239: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  return self._fit(X, y)
+"
+"2","/Users/juanisaulamejia/opt/anaconda3/lib/python3.12/site-packages/sklearn/neighbors/_classification.py:239: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  return self._fit(X, y)
+"
+"2","/Users/juanisaulamejia/opt/anaconda3/lib/python3.12/site-packages/sklearn/neighbors/_classification.py:239: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  return self._fit(X, y)
+"
+"2","/Users/juanisaulamejia/opt/anaconda3/lib/python3.12/site-packages/sklearn/neighbors/_classification.py:239: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  return self._fit(X, y)
+"
+"2","/Users/juanisaulamejia/opt/anaconda3/lib/python3.12/site-packages/sklearn/neighbors/_classification.py:239: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  return self._fit(X, y)
+"
+"1","KNeighborsClassifier(n_neighbors=11)
+KNeighborsClassifier(n_neighbors=12)
+KNeighborsClassifier(n_neighbors=13)
+KNeighborsClassifier(n_neighbors=14)
+KNeighborsClassifier(n_neighbors=15)
+KNeighborsClassifier(n_neighbors=16)
+KNeighborsClassifier(n_neighbors=17)
+KNeighborsClassifier(n_neighbors=18)
+KNeighborsClassifier(n_neighbors=19)
+KNeighborsClassifier(n_neighbors=20)
+KNeighborsClassifier(n_neighbors=21)
+KNeighborsClassifier(n_neighbors=22)
+"
+"2","/Users/juanisaulamejia/opt/anaconda3/lib/python3.12/site-packages/sklearn/neighbors/_classification.py:239: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  return self._fit(X, y)
+"
+"2","/Users/juanisaulamejia/opt/anaconda3/lib/python3.12/site-packages/sklearn/neighbors/_classification.py:239: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  return self._fit(X, y)
+"
+"2","/Users/juanisaulamejia/opt/anaconda3/lib/python3.12/site-packages/sklearn/neighbors/_classification.py:239: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  return self._fit(X, y)
+"
+"1","KNeighborsClassifier(n_neighbors=23)
+KNeighborsClassifier(n_neighbors=24)
+KNeighborsClassifier(n_neighbors=25)
+"

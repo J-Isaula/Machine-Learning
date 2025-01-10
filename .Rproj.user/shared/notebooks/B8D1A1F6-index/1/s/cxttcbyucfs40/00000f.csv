@@ -1,0 +1,4 @@
+"0","# Predecimos en el conjunto de prueba "
+"0","y_pred = reg_all.predict(X_test)"
+"0",""
+"0",""

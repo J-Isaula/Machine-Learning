@@ -1,0 +1,3 @@
+"0","print('predicciones: {}'.format(y_pred))"
+"1","predicciones: [0 1 0]
+"

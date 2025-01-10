@@ -1,0 +1,14 @@
+"0","X = churn_df[[""account_length"", ""customer_service_calls""]].values"
+"0","y = churn_df[[""churn""]].values"
+"0",""
+"0","knn = KNeighborsClassifier(n_neighbors=6)"
+"0","knn.fit(X, y)"
+"2","/Users/juanisaulamejia/opt/anaconda3/lib/python3.12/site-packages/sklearn/neighbors/_classification.py:239: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  return self._fit(X, y)
+"
+"1","KNeighborsClassifier(n_neighbors=6)
+"
+"0","X_new = [[30.0, 17.5], [107.0, 24.1], [213.0, 10.9]]"
+"0","y_pred = knn.predict(X_new)"
+"0",""
+"0",""

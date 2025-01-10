@@ -1,0 +1,10 @@
+"0","knn = KNeighborsClassifier(n_neighbors = 6)"
+"0","knn.fit(X_train, y_train)"
+"2","/Users/juanisaulamejia/opt/anaconda3/lib/python3.12/site-packages/sklearn/neighbors/_classification.py:239: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  return self._fit(X, y)
+"
+"1","KNeighborsClassifier(n_neighbors=6)
+"
+"0","print(knn.score(X_test, y_test))"
+"1","0.872
+"

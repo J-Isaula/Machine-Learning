@@ -1,0 +1,5 @@
+"0","X = diabetes_df.drop(""glucose"", axis = 1).values"
+"0","y = diabetes_df[""glucose""].values"
+"0","print(type(X), type(y))"
+"1","<class 'numpy.ndarray'> <class 'numpy.ndarray'>
+"

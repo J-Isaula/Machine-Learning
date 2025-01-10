@@ -1,0 +1,13 @@
+"0",""
+"0","import pandas as pd "
+"0","import numpy as np"
+"0","from sklearn.neighbors import KNeighborsClassifier"
+"0",""
+"0","churn_df = pd.read_csv(""telecom_churn_clean.csv"")"
+"0",""
+"0","X = churn_df[[""total_day_charge"", ""total_eve_charge""]].values"
+"0","y = churn_df[[""churn""]].values"
+"0","print(X.shape,y.shape)"
+"0",""
+"1","(3333, 2) (3333, 1)
+"

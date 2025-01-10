@@ -1,0 +1,26 @@
+{
+    "id": "0EEAA153",
+    "path": "~/Documents/2025/Machine Learning/.github/workflows/deploy-gh-pages.yml",
+    "project_path": ".github/workflows/deploy-gh-pages.yml",
+    "type": "yaml",
+    "hash": "3574428487",
+    "contents": "",
+    "dirty": false,
+    "created": 1736315304536.0,
+    "source_on_save": false,
+    "relative_order": 3,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "22,0",
+        "scrollLine": "1"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1736315334,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1736315334130,
+    "read_only": false,
+    "read_only_alternatives": []
+}

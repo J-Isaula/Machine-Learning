@@ -1,0 +1,4 @@
+"0","predicciones = knn.predict(X_new)"
+"0","print('predictiones: {}'.format(predicciones))"
+"1","predictiones: [1 0 0]
+"

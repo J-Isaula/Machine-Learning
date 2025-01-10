@@ -1,0 +1,12 @@
+"0","import matplotlib.pyplot as plt"
+"0","plt.scatter(X_bmi, y)"
+"1","<matplotlib.collections.PathCollection object at 0x30d215490>
+"
+"0","plt.ylabel(""Glucosa en la sangre (mg/dl)"")"
+"1","Text(61.201388888888864, 0.5, 'Glucosa en la sangre (mg/dl)')
+"
+"0","plt.xlabel(""Indice de masa corporal"")"
+"1","Text(0.5, 36.23561323993953, 'Indice de masa corporal')
+"
+"0","plt.show()"
+"0",""
