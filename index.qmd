@@ -584,9 +584,282 @@ rmse = np.sqrt(mse)
 rmse
 ```
 
-Esto nos dice que el modelo tiene un error medio para los niveles de glucosa en sangre de unos 26 mg/dl
+Esto nos dice que el modelo tiene un error medio para los niveles de glucosa en sangre de unos 26 mg/dl.
+:::
+
+::: {.column style="font-size:15px"}
+Con suerte ya nos sentiremos familiarizados con la división entre entrenamiento y prueba y con el cálculo de las métricas de rendimiento del modelo en nuestro conjunto de pruebas.
+
+Sin embargo, es posible que haya un obstaculo en este proceso:
+
+-   Si estamos calculando el $R^2$ en nuestro conjunto de prueba, el $R^2$ que obtenemos depende de la forma en que dividamos los datos.
+
+-   Los puntos de datos del conjunto de prueba pueden tener algunas peculiaridades, que hagan que el $R^2$ calculado sobre ellos no sea representativo de la capacidad del modelo con datos no vistos.
+
+-   Para evitar esta dependencia de lo que es esencialmente una división aleatoria, utilizamos una técnica llamada ***Validación Cruzada*** o ***Cross-Validation.***
+:::
+:::::
+
+## Conceptos Básicos de Regresión Lineal
+
+::::: columns
+::: {.column style="font-size:15px"}
+### **Cross-Validation**
+
+Se comienza dividiendo el conjunto de datos en 5 grupos o pliegues, acontinuación apartamos el primer pliegue como conjunto de prueba, ajustamos nuestro modelo a los 4 pliegues restantes, predecimos en nuestro conjunto de prueba y calculamos nuestra métrica de interés, como por ejemplo, $R^2$.
+
+![](img/g_14.png){fig-align="center" width="491"}
+
+Acontinuación apartamos el segundo pliegue (split 2) como conjunto de prueba, ajustamos con los datos restante, predecimos sobre el conjunto de prueba y calculamos la métrica de interés, después hacemos lo mismo con el split 3, split 4 y split 5.
+
+![](img/g_13.png){fig-align="center" width="491"}
+
+Como resultado obtenemos métricas de $R^2$ apartir de los cuales podemos calcular estadísticas de interes, como la media, mediana y los intervalos de confianza del 95%.
+:::
+
+::: {.column style="font-size:15px"}
+Como dividimos el conjunto de datos en 5 pliegues, llamamos a este proceso validación cruzada de 5 pliegues.
+
+-   Utilizar más pliegues computacionalmente tiene un desventaja, pues, tiene un costo mayor computacionalmente. Esto se debe a que ajustamos y predecimos mayor cantidad de veces.
+
+```{python}
+from sklearn.model_selection import cross_val_score, KFold
+
+# KFold: nos permite establecer una semilla, de manera que nuestros resultado sean
+#        repetibles.
+
+kf =  KFold(n_splits = 6, shuffle = True, random_state = 42)
+reg = LinearRegression()
+cv_results = cross_val_score(reg, X, y, cv = kf)
+
+print(cv_results)
+```
+
+Debemos tener encuenta que la métrica obtenida en $R^2$, ya que es el score por defecto para la regresión lineal. Esto devuelve 6 resultados, que van desde 0.2 hasta 0.3
+
+Podemos calcular la puntuación media y la desviación típica:
+
+```{python}
+print(np.mean(cv_results), np.std(cv_results))
+```
+
+Además, podemos calcular el intervalo de confianza del 95%:
+
+```{python}
+print(np.quantile(cv_results, [0.025, 0.975]))
+```
+:::
+:::::
+
+## Conceptos Básicos de Regresión Lineal
+
+::::: columns
+::: {.column style="font-size:15px"}
+### **Regularización - Regresión** {.column style="font-size:15px"}
+
+Vamos a explorar la regularización en la regresión, una técnica utilizada para evitar el sobreajuste.
+
+Recordemos que el ajuste de un modelo de regresión lineal utiliza una función de pérdida para elegir un coeficiente
+
+-   Si permitimos que estos coeficientes sean muy grandes podemos obtener un sobreajuste. Por eso, una practica habitual es modificar la función de pérdida para que penalize los coeficientes grandes, a esto le llamamos `regularización`.
+
+**Ridge Regression**
+
+El primer tipo de regresión regularizada que examinaremos se llama Ridge. Con está, utilizamos la función de pérdida de minímos cuadrados ordinarios más el valor al cuadrado de cada coeficiente:
+
+$$
+Loss~Function = OLS~loss + \alpha *\sum_{i=1}^n a_i^2
+$$
+
+-   De este modo, al minimizar la función de pérdida, se penaliza a los modelos por coeficientes con grandes valores positivos o negativos.
+
+-   Al utilizar Ridge, tenemos que elegir el valor $\alpha$ para ajustar y predecir, en definitiva podemos seleccionar el $\alpha$ con el que nuestro modelo funciona mejor.
+
+-   Elegir $\alpha$ para Ridge es similar a elegir $k$ en KNN. $\alpha$ en Ridge se conoce como hiperparametro (es una variable utilizada para seleccionar los parámetros del modelo.
+:::
+
+::: {.column style="font-size:15px"}
+-   $\alpha$ controla la complejidad del modelo, cuando $\alpha = 0 = OLS$ donde los coeficientes grandes no se penalizan y puede producirse un sobreajuste (overfitting). Un $\alpha$ alto, significa que los coeficientes grandes se penalizan significativamente, lo que puede llevar a un infrajuste (underfitting).
+
+Para realizar la regresión Ridge en Scikit-Learn:
+
+```{python}
+from sklearn.linear_model import Ridge 
+scores = []
+for alpha in [0.1, 1.0, 10.0, 100.0, 1000.0]:
+  ridge = Ridge(alpha = alpha)
+  ridge.fit(X_train, y_train)
+  y_pred = ridge.predict(X_test)
+  scores.append(ridge.score(X_test, y_test))
+  
+print(scores)  
+```
+
+Vemos que el rendimiento empeora a medida que aumenta $\alpha$. Existe otro tipo de función regularizadora.
+
+### **Lasso Regression**
+
+$$
+Loss Function = OLS~loss~function + \alpha*\sum_{i=1}^n |a_i|
+$$
+
+```{python}
+from sklearn.linear_model import Lasso
+scores = []
+for alpha in [0.01, 1.0, 10.0, 20.0, 50.0]:
+  lasso = Lasso(alpha = alpha)
+  lasso.fit(X_train, y_train)
+  lasso_pred = lasso.predict(X_test)
+  scores.append(lasso.score(X_test, y_test))
+  
+print(scores)  
+
+```
+
+El rendimiento disminuye cuando $\alpha>20$.
+:::
+:::::
+
+## Conceptos Básicos de Regresión Lineal
+
+::::: columns
+::: {.column style="font-size:15px"}
+### Regresión Lasso para Selección de Características
+
+-   En realidad la Regresión Lasso puede utilizarse para evaluar la importancia de las características.
+
+-   Esto se debe a que tiende a reducir a cero los coeficientes de las características menos importantes.
+
+-   Las características cuyos coeficientes no se reducen a cero son seleccionadas por el `algoritmo Lasso`.
+
+Vamos a comprobarlo en la práctica, observe el código de la derecha, donde apreciamos lo siguiente:
+
+-   El predictor más importante para nuestra variable objetivo (los niveles de glucosa en sangre) es el valor binario que indica si un individuo tiene diabetes o no. Esto no es una sorpresa, pero es una gran prueba de cordura.
+
+-   Este tipo de selección de característica es muy importante, porqué, nos permite comunicar los resultados a un público no técnico.
+
+-   También es util para identificar que factores son predictores importantes de diversos fenomenos fisicos.
+:::
+
+::: {.column style="font-size:15px"}
+```{python}
+from sklearn.linear_model import Lasso 
+X = diabetes_df.drop("glucose", axis = 1).values      # matriz de características.
+y = diabetes_df["glucose"].values                     # característica objetivo.
+names = diabetes_df.drop("glucose", axis = 1).columns # nombres características.
+lasso = Lasso(alpha = 0.1)                            # Instanciamos Lasso.
+lasso_coef = lasso.fit(X,y).coef_                     # Ajustamos y extraermos coeficientes.
+plt.bar(names, lasso_coef)
+plt.xticks(rotation = 45)
+plt.show()
+```
+:::
+:::::
+
+## Conceptos Básicos de Regresión Lineal
+
+::::: columns
+::: {.column style="font-size:15px"}
+### Es bueno tu Modelo?
+
+Pensando en los problemas de clasificación, recuerda que podemos utilizar:
+
+-   La precisión (Accuracy).\
+    -   La fracción de etiquetas clasificadas correctamente para medir el rendimiento del modelo.\
+    -   Sin embargo, Accuracy, no siempre es una métrica útil.
+
+Pongamos el caso de un modelo para predecir si una transacción bancaria es fraudulenta, en el que solo el 1% de las transacciones realmente lo son y el 99% son legítimas:
+
+-   Podriamos construir un modelo que clasificará cada transacción como legítima, ese modelo tendría una presición del 99%, sin embargo, su capacidad a la hora de predecir el fraude es pésima, por lo que el modelo fracasa en su propósito original.
+
+-   La situación en la que una clase es más frecuente se denomina ***desequilibrio de clases.*** En este caso, la clase de transacciones legítimas contine muchos más casos que la clase de transacciones fraudulentas. Se trata de una situación habitual en la práctica y requiere un enfoque diferente para evaluar el rendimiento del modelo.
+
+#### Matriz de confusión para evaluar el desempeño de la clasificación
+
+Dado un clasificador binario, como nuestro ejemplo de las transacciones fraudulentas, podemos construir una matriz de $2\times2$ que resuma el rendimiento llamada `matriz de confusión`.
+:::
+
+::: {.column style="font-size:15px"}
+![](img/g_15.png){fig-align="center" width="491"}
+
+En la parte superior están las etiquetas previstas y en el lateral las etiquetas propiamente dichas.
+
+Dado cualquier modelo, podemos rellenar la matriz de confusión según sus predicciones.
+
+-   **True Positive:** El número de transacciones fraudulentas etiquetadas correctamente.
+
+-   **True Negative:** El número de transacciones legítimas etiquetadas correctamente.
+
+-   **False Negative:** El número de transacciones legítimas etiquetadas incorrectamente.
+
+-   **False Positive:** El número de transacciones etiquetadas incorrectamente como fraudulentas.
+
+Normalmente la clase de interes se denomina *`clase positiva.`* Como nuestro objetivo es detectar el fraude, la clase positiva es una transacción ilegítima. Entonces, **porqué es importante la matriz de confusión?**
+:::
+:::::
+
+## Métricas de desempeño
+
+::::: columns
+::: {.column style="font-size:15px"}
+### Porqué es importante la matriz de confusión?
+
+-   Accuracy: Podemos recuperar la precisión, con la siguiente identidad,\
+    $$\frac{tp + tn}{tp + tn + fp + fn}$$
+
+En segundo lugar, existen otras métricas importantes que podemos calcular apartir de la matriz de confusión:
+
+-   ***Precisión o Valor predictivo positivo:*** es nuestro caso, es el número de transacciones fraudulentas correctamente etiquetadas dividido por el número total de transacciones clasificadas como fraudulentas $$\frac{true~positive}{true~positive~+~false~positive}$$\
+    -   `Precisión Alta:` significa tener una tasa de falsos positivos más baja. Para nuestro clasificador, esto se traduce en un menor número de transacciones legítimas clasificadas como fraudulentas.
+-   ***Recuperación (Recall) o Sensibilidad :*** una recuperación alta, refleja una menor tasa de falsos negativos, para nuestro clasificador significa predecir correctamente la mayoría de las transacciones fraudulentas, $$\frac{true~positives}{true~positives + false~positives}$$
+:::
+
+::: {.column style="font-size:15px"}
+-   ***F1 Score:*** es la media armonica de la precisióny la recuperación, esta métrica, da la misma importancia a la precisión y recuperación, por lo que tiene en cuenta tanto el número de errores cometidos por el modelo, como el tipo de errores. $$2\times \frac{precisión\times recall}{precisión~+~recall}$$\
+    La puntuación F1 Score favorece a los modelos con precisión y recuperación similares y es una métrica útil si buscamos un modelo que funcione razonablemente bien con ambas métricas.
+
+#### Matriz de confusión con Scikit-Learn
+
+```{python}
+from sklearn.metrics import classification_report, confusion_matrix 
+from sklearn.model_selection import train_test_split
+X = churn_df[["total_day_charge", "total_eve_charge"]].values
+y = churn_df[["churn"]].values
+knn = KNeighborsClassifier(n_neighbors = 7)
+X_train, X_test, y_train, y_test = train_test_split(X,y,test_size = 0.4, 
+random_state = 42)
+knn.fit(X_train, y_train)
+y_pred = knn.predict(X_test)
+print(confusion_matrix(y_test, y_pred))
+```
+
+Podemos ver que obtenemos:
+
+-   True Negative: 1,106
+
+Al pasar los mismos argumentos al informe de clasificación se obtienen todas las métricas relevantes, esto incluye, la precisión, y la recuperación por clase.
+:::
+:::::
+
+## Métricas de desempeño
+
+::::: columns
+::: {.column style="font-size:15px"}
+```{python}
+print(classification_report(y_test, y_pred))
+```
+
+0.62 y 0.30 para la clase de recall respectivamente, lo que pone de manifiesto lo pobre que es la recuperación del modelo.
+
+El ***support*** representa el número de instancias de cada clase dentro de las etiquetas verdaderas.
 :::
 
 ::: {.column style="font-size:15px"}
 :::
 :::::
+
+# Regresión Logistica y Curva ROC
+
+::: {.column style="font-size:15px"}
+Es el momento de introducir otro modelo, como lo es la regresión logistica, a paser de su nombre, la regresión logistica se utiliza para la clasificación. Este modelo, calcula la probabilidad de que una observación pertenezca a una clase binaria. Utilizando nuestro conjunto de datos sobre la diabetes como ejemplo, si $p>0.5$ etiquetamos los datos como `1`, lo que representa una predicción de que es más probable que un individuo tenga diabetes, si $p< 0.5$ lo etiquetamos como `0` para representar que es más probable que no tenga diabetes.
+:::

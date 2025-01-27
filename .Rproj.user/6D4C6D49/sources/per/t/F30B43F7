@@ -3,7 +3,7 @@
     "path": "~/Documents/2025/Machine Learning/index.qmd",
     "project_path": "index.qmd",
     "type": "quarto_markdown",
-    "hash": "0",
+    "hash": "2434615318",
     "contents": "",
     "dirty": false,
     "created": 1736313664413.0,
@@ -12,20 +12,20 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "563,0",
-        "scrollLine": "532",
+        "cursorPosition": "683,4",
+        "scrollLine": "648",
         "rmdVisualMode": "true",
         "rmdVisualWrapConfigured": "true",
         "docOutlineVisible": "1",
         "rmdVisualCollapsedChunks": "",
-        "rmdVisualModeLocation": "20059:17661"
+        "rmdVisualModeLocation": "25157:24826.5"
     },
     "folds": "",
-    "lastKnownWriteTime": 1736482788,
+    "lastKnownWriteTime": 1737265213,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1736482788219,
+    "last_content_update": 1737265213512,
     "read_only": false,
     "read_only_alternatives": []
 }

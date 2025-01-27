@@ -584,9 +584,138 @@ rmse = np.sqrt(mse)
 rmse
 ```
 
-Esto nos dice que el modelo tiene un error medio para los niveles de glucosa en sangre de unos 26 mg/dl
+Esto nos dice que el modelo tiene un error medio para los niveles de glucosa en sangre de unos 26 mg/dl.
 :::
 
 ::: {.column style="font-size:15px"}
+Con suerte ya nos sentiremos familiarizados con la división entre entrenamiento y prueba y con el cálculo de las métricas de rendimiento del modelo en nuestro conjunto de pruebas.
+
+Sin embargo, es posible que haya un obstaculo en este proceso:
+
+-   Si estamos calculando el $R^2$ en nuestro conjunto de prueba, el $R^2$ que obtenemos depende de la forma en que dividamos los datos.
+
+-   Los puntos de datos del conjunto de prueba pueden tener algunas peculiaridades, que hagan que el $R^2$ calculado sobre ellos no sea representativo de la capacidad del modelo con datos no vistos.
+
+-   Para evitar esta dependencia de lo que es esencialmente una división aleatoria, utilizamos una técnica llamada ***Validación Cruzada*** o ***Cross-Validation.***
+:::
+:::::
+
+## Conceptos Básicos de Regresión Lineal
+
+::::: columns
+::: {.column style="font-size:15px"}
+### **Cross-Validation**
+
+Se comienza dividiendo el conjunto de datos en 5 grupos o pliegues, acontinuación apartamos el primer pliegue como conjunto de prueba, ajustamos nuestro modelo a los 4 pliegues restantes, predecimos en nuestro conjunto de prueba y calculamos nuestra métrica de interés, como por ejemplo, $R^2$.
+
+![](img/g_14.png){fig-align="center" width="491"}
+
+Acontinuación apartamos el segundo pliegue (split 2) como conjunto de prueba, ajustamos con los datos restante, predecimos sobre el conjunto de prueba y calculamos la métrica de interés, después hacemos lo mismo con el split 3, split 4 y split 5.
+
+![](img/g_13.png){fig-align="center" width="491"}
+
+Como resultado obtenemos métricas de $R^2$ apartir de los cuales podemos calcular estadísticas de interes, como la media, mediana y los intervalos de confianza del 95%.
+:::
+
+::: {.column style="font-size:15px"}
+Como dividimos el conjunto de datos en 5 pliegues, llamamos a este proceso validación cruzada de 5 pliegues.
+
+-   Utilizar más pliegues computacionalmente tiene un desventaja, pues, tiene un costo mayor computacionalmente. Esto se debe a que ajustamos y predecimos mayor cantidad de veces.
+
+```{python}
+from sklearn.model_selection import cross_val_score, KFold
+
+# KFold: nos permite establecer una semilla, de manera que nuestros resultado sean
+#        repetibles.
+
+kf =  KFold(n_splits = 6, shuffle = True, random_state = 42)
+reg = LinearRegression()
+cv_results = cross_val_score(reg, X, y, cv = kf)
+
+print(cv_results)
+```
+
+Debemos tener encuenta que la métrica obtenida en $R^2$, ya que es el score por defecto para la regresión lineal. Esto devuelve 6 resultados, que van desde 0.2 hasta 0.3
+
+Podemos calcular la puntuación media y la desviación típica:
+
+```{python}
+print(np.mean(cv_results), np.std(cv_results))
+```
+
+Además, podemos calcular el intervalo de confianza del 95%:
+
+```{python}
+print(np.quantile(cv_results, [0.025, 0.975]))
+```
+:::
+:::::
+
+## Conceptos Básicos de Regresión Lineal
+
+::::: columns
+::: {.column style="font-size:15px"}
+### **Regularización - Regresión** {.column style="font-size:15px"}
+
+Vamos a explorar la regularización en la regresión, una técnica utilizada para evitar el sobreajuste.
+
+Recordemos que el ajuste de un modelo de regresión lineal utiliza una función de pérdida para elegir un coeficiente
+
+-   Si permitimos que estos coeficientes sean muy grandes podemos obtener un sobreajuste. Por eso una practica habitual es modificar la función de pérdida para que penalize los coeficientes grandes, a esto le llamamos `regularización`.
+
+**Ridge Regression**
+
+El primer tipo de regresión regularizada que examinaremos se llama Ridge. Con está, utilizamos la función de pérdida de minímos cuadrados ordinarios más el valor al cuadrado de cada coeficiente:
+
+$$
+Loss~Function = OLS~loss + \alpha *\sum_{i=1}^n a_i^2
+$$
+
+-   De este modo al minimizar la función de pérdida, se penaliza a los modelos por coeficientes con grandes valores positivos o negativos.
+
+-   Al utilizar Ridge, tenemos que elegir el valor $\alpha$ para ajustar y predecir, en definitiva podemos seleccionar el $\alpha$ con el que nuestro modelo funciona mejor.
+
+-   Elegir $\alpha$ para Ridge es similar a elegir $k$ en KNN. $\alpha$ en Ridge se conoce como hiperparametro (es una variable utilizada para seleccionar los parámetros del modelo.
+:::
+
+::: {.column style="font-size:15px"}
+-   $\alpha$ controla la complejidad del modelo, cuando $\alpha = 0 = OLS$ donde los coeficientes grandes no se penalizan y puede producirse un sobreajuste (overfitting). Un $\alpha$ alto significa que los coeficientes grandes se penalizan significativamente, lo que puede llevar a un infrajuste (underfitting).
+
+Para realizar la regresión Ridge en Scikit-Learn:
+
+```{python}
+from sklearn.linear_model import Ridge 
+scores = []
+for alpha in [0.1, 1.0, 10.0, 100.0, 1000.0]:
+  ridge = Ridge(alpha = alpha)
+  ridge.fit(X_train, y_train)
+  y_pred = ridge.predict(X_test)
+  scores.append(ridge.score(X_test, y_test))
+  
+print(scores)  
+```
+
+Vemos que el rendimiento empeora a medida que aumenta $\alpha$. Existe otro tipo de función regularizadora.
+
+### **Lasso Regression**
+
+$$
+Loss Function = OLS~loss~function + \alpha*\sum_{i=1}^n |a_i|
+$$
+
+```{python}
+from sklearn.linear_model import Lasso
+scores = []
+for alpha in [0.01, 1.0, 10.0, 20.0, 50.0]:
+  lasso = Lasso(alpha = alpha)
+  lasso.fit(X_train, y_train)
+  lasso_pred = lasso.predict(X_test)
+  scores.append(lasso.score(X_test, y_test))
+  
+print(scores)  
+
+```
+
+El rendimiento disminuye cuando $\alpha>20$.
 :::
 :::::
