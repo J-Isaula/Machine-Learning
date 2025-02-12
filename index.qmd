@@ -2,6 +2,9 @@
 title: Cientifico de Machine Learning
 subtitle: Python
 format: clean-revealjs
+clean: true
+pdf: true
+download: true
 execute: 
   echo: true
   output: true
@@ -861,5 +864,294 @@ El ***support*** representa el número de instancias de cada clase dentro de las
 # Regresión Logistica y Curva ROC
 
 ::: {.column style="font-size:15px"}
-Es el momento de introducir otro modelo, como lo es la regresión logistica, a paser de su nombre, la regresión logistica se utiliza para la clasificación. Este modelo, calcula la probabilidad de que una observación pertenezca a una clase binaria. Utilizando nuestro conjunto de datos sobre la diabetes como ejemplo, si $p>0.5$ etiquetamos los datos como `1`, lo que representa una predicción de que es más probable que un individuo tenga diabetes, si $p< 0.5$ lo etiquetamos como `0` para representar que es más probable que no tenga diabetes.
+Es el momento de introducir otro modelo, como lo es la regresión logistica, a pesar de su nombre, la regresión logística se utiliza para la clasificación. Este modelo, calcula la probabilidad, $p$, de que una observación pertenezca a una clase binaria. Utilizando nuestro conjunto de datos sobre la diabetes como ejemplo, si $p>0.5$ etiquetamos los datos como `1`, lo que representa una predicción de que es más probable que un individuo tenga diabetes, si $p< 0.5$ lo etiquetamos como `0` para representar que es más probable que no tenga diabetes.
 :::
+
+## Regresión Logística
+
+::::: columns
+::: {.column style="font-size:15px"}
+### Límite de decisión lineal
+
+La regresión logística produce un límite de decisión lineal, como podemos ver en el siguiente gráfico:
+
+![](img/g_16.png){fig-align="center" width="300"}
+
+El uso de la regresión logística de `Scikit-Learn` sigue el mismo planteamiento que se utiliza con otros modelos, veamos:
+
+```{python}
+from sklearn.linear_model import LogisticRegression 
+diabetes_df = pd.read_csv("diabetes_clean.csv")
+X = diabetes_df.drop("diabetes", axis = 1).values
+y = diabetes_df["diabetes"].values
+X_train, X_test, y_train, y_test = train_test_split(X,y, test_size = 0.3, random_state = 42)
+logreg = LogisticRegression()
+logreg.fit(X_train, y_train)
+y_pred = logreg.predict(X_test)
+```
+
+Podemos predecir las probabilidades de que cada instancia pertenezca a una clase, llamando al método `predict_proba()`
+:::
+
+::: {.column style="font-size:15px"}
+#### Predicción Probabilidades
+
+```{python}
+y_pred_probs = logreg.predict_proba(X_test)[:, 1]
+print(y_pred_probs[:10])
+```
+
+Observa como la probabilidad de un diagnóstico de diabetes para los primeros 10 individuos en el conjunto de prueba varia de 0.26 a 0.79
+
+#### Umbrales de Probabilidad
+
+-   Para la regresión logística el umbral de probabilidad por defecto en scikit-learn es 0.5.
+
+-   Este umbral también puede aplicarse a otros modelos como KNN
+
+**Que ocurre cuando variamos este umbral?**
+
+Podemos utilizar una curva característica operativa del receptor o ROC para visualizar como afectan los distintos umbrales a las tasas de verdaderos positivos y falsos positivos
+
+![](img/g_17.png){fig-align="center" width="250"}
+:::
+:::::
+
+## Regresión Logistica
+
+::::: columns
+::: {.column style="font-size:15px"}
+La diagonal de la linea de puntos de la curva ROC representa un modelo de azar, que adivina las etiquetas aleatoriamente, cuando el umbral es igual a cero ($p=0$) el modelo predice 1 para todas las observaciones, lo que significa que predecirá correctamente todos los valores positivos y de forma incorrecta todos los valores negativos
+
+![](img/g_18.png){fig-align="center" width="250"}
+
+Si el umbral es igual a 1 ($p=1$), el modelo predice 0 para todos los datos, lo que significa que tanto las tasas de verdadero como los falsos positivos son cero.
+
+![](img/g_19.png){fig-align="center" width="250"}
+:::
+
+::: {.column style="font-size:15px"}
+Si variamos el umbral, obtenemos una serie de tasas diferentes de falsos positivos y verdaderos positivos
+
+![](img/g_20.png){fig-align="center" width="250"}
+
+#### Plotting Curva ROC
+
+Un gráfico lineal de los umbrales ayuda a visualizar la tendencia, veamos:
+
+![](img/g_21.png){fig-align="center" width="250"}
+:::
+:::::
+
+## Curva ROC en Scikit Learn
+
+::::: columns
+::: {.column style="font-size:15px"}
+Veamos como realizar la curva ROC con Scikit-Learn:
+
+```{python}
+from sklearn.metrics import roc_curve
+fpr, tpr, thresholds = roc_curve(y_test, y_pred_probs)
+plt.plot([0,1],[0,1], 'k--')
+plt.plot(fpr, tpr)
+plt.xlabel('Tasa de Falsos Positivos')
+plt.ylabel('Tasa de Verdaderos Positivos')
+plt.title('Curva ROC de Regresión Logística')
+plt.show()
+```
+:::
+
+::: {.column style="font-size:15px"}
+Esto parece que tiene muy buena pinta, pero, como cuantificamos el rendimiento del modelo basandonos en este gráfico.
+
+#### ROC AUC
+
+Si tenemos un modelo con 1 para la tasa de verdaderos positivos y 0 para la tasa de falsos positivos, este sería el modelo perfecto, por tanto, calculamos el área bajo la curva ROC, una métrica conocida como `AUC` las puntuaciones van de 0 a 1. Siendo 1 la ideal.
+
+En este caso veamos como calcular el AUC en scikit-learn:
+
+```{python}
+from sklearn.metrics import roc_auc_score
+print(roc_auc_score(y_test, y_pred_probs))
+```
+
+```{python}
+# Matriz de confusión
+from sklearn.metrics import confusion_matrix, classification_report
+print(confusion_matrix(y_test, y_pred))
+
+# Reporte de clasificación 
+print(classification_report(y_test, y_pred))
+```
+
+Nota que el modelo de regresión logística funciona mejor que el modelo KNN en todas las métricas que calculaste. ¡Un puntaje ROC AUC de 0.8002 significa que este modelo es un 60% mejor que un modelo al azar en predecir correctamente las etiquetas! scikit-learn hace que sea fácil producir varias métricas de clasificación con solo unas pocas líneas de código.
+:::
+:::::
+
+## Optimización de Hiperparámetros
+
+::::: columns
+::: {.column style="font-size:15px"}
+Ahora que ya sabemos como evaluar el rendimiento de un modelo vamos a explorar como optimizar el nuestro.
+
+-   Recuerda que tuvimos que elegir un valor para ***alpha*** en la regresión ***Ridge/Lasso*** antes de ajustarla.
+
+-   Así mismo, antes de ajustar y predecir un ***KNN*** eligiremos un ***n_neighbors***.
+
+-   Los paramétros que especificamos antes de ajustar un modelo como ***alpha*** y ***neighbors*** se llaman `hiperparámetros`. Por tanto, un paso fundamental para construir un modelo de éxito es elegir los hiperparámetros correctos.\
+    \
+
+    -   Podemos probar muchos valores distintos.\
+    -   Ajustarlos todos por separados.\
+    -   Ver su rendimiento.\
+    -   Y elegir los mejores.\
+        \
+        Esto se llama ***ajuste de hiperparámetros***, al ajustar distintos valores de hiperparámetros utilizamos la validación cruzada para evitar el sobreajuste de los hiperparámetros al conjunto de prueba.
+
+#### Grid Search Cross Validation
+
+Una forma de ajustar los hiperparámetros es la llamada busqueda en cuadricula (Grid Search) con la que elegimos una cuadricula de posibles valores de hiperparámetros para probar.
+
+**Por ejemplo:** podemos buscar entre dos hiperparámetros en un modelo KNN, el tipo de métrica y un número diferente de vecinos.
+:::
+
+::: {.column style="font-size:15px"}
+Aquí tenemos $n$ vecinos entre 2 y 11 en incrementos de 3 y dos métricas (euclidean y manhattan),
+
+![](img/g_22.png){fig-align="center" width="280"}
+
+Por tanto, podemos tener una cuadricula de valores como está:
+
+![](img/g_23.png){fig-align="center" width="280"}
+
+realizamos una validación cruzada k-fold para cada combinación de hiperparámetros, aquí se muestran las puntuaciones medias de cada combinación, a continuación como se muestra en la tabla, elegimos los hiperparámetros que obtuvierón mejores resultados:
+
+![](img/g_24.png){fig-align="center" width="280"}
+:::
+:::::
+
+## GridSearchCV en Scikit-Learn
+
+::::: columns
+::: {.column style="font-size:15px"}
+```{python}
+from sklearn.model_selection import GridSearchCV, KFold
+from sklearn.linear_model import Ridge 
+import numpy as np
+
+X = churn_df[["account_length", "customer_service_calls"]].values
+y = churn_df[["churn"]].values
+X_train, X_test, y_train, y_test = train_test_split(X,y,test_size = 0.4, 
+random_state = 42)
+kf = KFold(n_splits = 5, shuffle = True, random_state = 42)
+param_grid = {"alpha": np.arange(0.0001,1,10),"solver": ["sag", "lsqr"]}
+ridge = Ridge()
+ridge_cv = GridSearchCV(ridge, param_grid, cv = kf)
+ridge_cv.fit(X_train, y_train)
+print(ridge_cv.best_params_, ridge_cv.best_score_)
+
+```
+
+Lo que obtenemos son los hiperparámetros con mejor rendimiento junto con la puntuación media de validación cruzada sobre ese pliegue.
+
+#### Limitaciones y un enfoque alternativo
+
+La busqueda en cuadricula es genial, sin embargo, el número de ajustes es igual al número de hiperparámetros multiplicado por el número de valores multiplicado por el número de pliegues, por lo tanto, no escala bien. Entonces:
+
+-   Realizar una validación cruzada a 3 para 1 hiperparámetro, con 10 valores cada uno, significa 30 ajustes.
+
+-   Mientras que una validación cruzada a 10, para 3 hiperparámetros, con 30 valores cada uno, significa 900 ajustes.
+
+-   Sin embargo, existe otra forma.
+
+#### RandomizedSearchCV
+
+Podemos realizar una busqueda aleatoria, que elige valores de hiperparámetros al azar en lugar de buscar exhautivamente entre todas las opcione. Vamos a demostrar este enfoque
+:::
+
+::: {.column style="font-size:15px"}
+```{python}
+from sklearn.model_selection import RandomizedSearchCV 
+kf = KFold(n_splits = 5, shuffle = True, random_state = 42)
+param_grid = {'alpha': np.arange(0.0001, 1, 10), 'solver': ['sag', 'lsqr']}
+ridge = Ridge()
+ridge_cv = RandomizedSearchCV(ridge, param_grid, cv = kf, n_iter = 2)
+ridge_cv.fit(X_train, y_train)
+print(ridge_cv.best_params_, ridge_cv.best_score_)
+
+```
+
+En este caso vemos los mejores hiperparámetros apartir de la anterior busqueda en cuadricula.
+
+#### Rendimiento del modelo
+
+Podemos evaluar el rendimiento del modelo en el conjunto de pruebas pasandolo a una llamada del método `.score().`
+
+```{python}
+test_score = ridge_cv.score(X_test, y_test)
+print(test_score)
+```
+:::
+:::::
+
+# Procesamiento de datos
+
+::::: columns
+::: {.column style="font-size:15px"}
+Recuerda que scikit-learn, requiere:
+
+-   Datos númericos.
+
+-   Sin valores pérdidos.
+
+Todos los datos que hemos utilizado hasta ahora han tenido ese formato. Sin embargo, con datos del mundo real rara vez será así y en su lugar necesitamos pre-procesar nuestros datos antes de poder construir modelos.
+:::
+
+::: {.column style="font-size:15px"}
+:::
+:::::
+
+## Tratar con Variables Categóricas
+
+::::: columns
+::: {.column style="font-size:15px"}
+Supongamos que tenemos un conjunto de datos que contiene características categóricas como el color, como no son númericas, scikit-learn no las aceptará y tendremos que convertirlas en características númericas. Esto se consigue dividiendo la característica en múltiples características binarias llamadas variables ficticias, una para cada categoría.
+
+-   `0:` significa que la observación no erá de esa categória.
+
+-   `1:` significa que si erá de la categória.
+
+#### Variables Dummy
+
+Digamos que trabajamos con un conjunto de datos de música, que tiene una característica de género con 10 valores, como las que podemos ver en la tabla:
+
+![](img/g_25.png){width="150"}
+:::
+
+::: {.column style="font-size:15px"}
+Creamos características binarias para cada genero:
+
+![](img/g_26.png){fig-align="center" width="500"}
+
+#### Manejo de variables categóricas en Python
+
+Para crear variables ficticias podemos usar:
+
+-   **scikit-learn:** `OneHotEncoder()`
+
+-   **pandas:** `get_dummies()`
+
+#### Data Music
+
+En este capitulo trabajaremos con un conjunto de datos de música, donde:
+
+-   **popularity:** Target variable
+
+-   **genre:** variable categorica
+
+```{python}
+music = pd.read_csv("music_clean.csv")
+music.head(n=2)
+```
+:::
+:::::
