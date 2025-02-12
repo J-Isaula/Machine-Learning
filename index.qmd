@@ -1274,7 +1274,7 @@ X_test = np.append(X_test_num, X_test_cat, axis = 1)
 
 Debido a su capacidad para transformar nuestros datos a los imputadores se les conoce como transformadores.
 
-#### Imputando con pipeline 
+#### Imputando con pipeline
 
 También podemos imputar utilizando una canalización, que es un objeto utilizado para ejecutar una serie de transformación y construir un modelo en un único flujo de trabajo.
 :::
@@ -1301,5 +1301,227 @@ pipeline.score(X_test, y_test)
 ![](img/g_31.png){width="500"}
 
 Debemos tener encuenta que, en un pipeline, todos los pasos excepto el último deben ser transformadores.
+:::
+:::::
+
+## Centrado y Escalado
+
+::::: columns
+::: {.column style="font-size:15px"}
+La imputación de datos es uno de los varios pasos de preprocesamiento importantes para el aprendizaje automatico. Acontinuación vamos a abordar otro, `centrar y escalar` nuestros datos. Utilizamos `.describe()` para comprobar los rangos de algunas de nuestras variables de características en el conjunto de datos de música.
+
+```{bash}
+print(music_df[["duration_ms", "loudness", "speechiness"]].describe())
+```
+
+![](img/g_32.png){width="500"}
+
+Podemos ver que los rangos varian mucho, **duration_ms** ocila entre 0 y 1.62 millones.
+
+-   Muchos modelos de Machine Learning, utilizan algún tipo de distancia para informarce, de modo que si tenemos características a escalas mucho mayores pueden influir de forma desproporcionada en nuestro modelo, por ejemplo,
+
+-   KNN utiliza explicitamente la distancia al hacer predicciones por esta razón lo que queremos es que las características esten en una escala similar.
+
+-   Para conseguirlo, podemos normalizar o estandarizar nuestros datos, lo que a menudo se conoce como **escalado y centrado.**
+:::
+
+::: {.column style="font-size:15px"}
+#### Como escalar nuestros datos?
+
+Existen varias formas de escalar nuestros datos:
+
+-   Para cada columna podemos restar la media y dividirla por la varianza, de forma que todas las características se centren en 0 y tengan una varianza de 1, esto se llama **normalización**.
+
+-   También, podemos restar el *mínimo* y dividir por el *rango de los datos*, de modo que el conjunto de datos normalizado tenga un mínimo 0 y un máximo 1.\
+
+    -   O bien, podemos centrar los datos para que vayan de -1 a 1.
+
+Aquí, llevaremos a cabo la normalización, sin embargo, Scikit-Learn dispone de funciones para otros tipos de escalado.
+
+```{python}
+from sklearn.preprocessing import StandardScaler 
+music_df = pd.read_csv("music_clean.csv")
+X = music_df.drop("genre", axis = 1).values
+y = music_df["genre"].values
+X_train, X_test, y_train, y_test = train_test_split(X,y,test_size = 0.2, random_state = 42)
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+print(np.mean(X), np.std(X))
+print(np.mean(X_train_scaled), np.std(X_train_scaled))
+```
+
+#### Scalando en un Pipeline
+
+```{python}
+from sklearn.pipeline import Pipeline 
+steps = [("scaler", StandardScaler()),("knn", KNeighborsClassifier(n_neighbors = 6))]
+pipeline = Pipeline(steps)
+X_train, X_test, y_train, y_test = train_test_split(X,y,test_size = 0.2, random_state = 21)
+knn_scaled = pipeline.fit(X_train, y_train)
+y_pred = knn_scaled.predict(X_test)
+print(knn_scaled.score(X_test, y_test))
+
+```
+:::
+:::::
+
+## Centrado y Escalado
+
+::::: columns
+::: {.column style="font-size:15px"}
+#### Comparando performance usando data sin scalar
+
+```{python}
+X_train, X_test, y_train, y_test = train_test_split(X,y,test_size = 0.2, random_state = 21)
+knn_unscaled = KNeighborsClassifier(n_neighbors = 6).fit(X_train, y_train)
+print(knn_unscaled.score(X_test, y_test))
+```
+
+Como podemos observar, escalando nuestros datos mejoramos la precisión.
+
+Veamos también, como podemos utilizar la CV con un pipeline.
+
+#### CV y Escalado en un Pipeline
+
+```{python}
+from sklearn.model_selection import GridSearchCV
+# Primero construimos la canalización 
+steps = [("scaler", StandardScaler()), ("knn", KNeighborsClassifier())]
+pipeline = Pipeline(steps)
+
+# Acontinuación especificamos nuestro espacio de hiperparámetros 
+# Creando un diccionario
+parameters = {"knn__n_neighbors": np.arange(1, 50)}
+
+# Dividimos los datos en conjunto de Train y Test
+X_train, X_test, y_train, y_test = train_test_split(X,y,test_size = 0.2, random_state = 21)
+
+# Realizamos una busqueda en cuadricula sobre nuestros parámetros 
+cv = GridSearchCV(pipeline, param_grid = parameters)
+
+# Tras esto, lo ajustamos a nuestros datos de Train 
+cv.fit(X_train, y_train)
+
+# Hacemos predicciones utilizando nuestro conjunto de prueba 
+y_pred = cv.predict(X_test)
+print(cv.best_score_)
+```
+
+vemos que la puntuación es similar que la del modelo con los datos escalados.
+
+```{python}
+print(cv.best_params_)
+```
+:::
+
+::: {.column style="font-size:15px"}
+Al imprimir nuestros mejores parámetros, el modelo óptimo tiene 6 vecinos.
+:::
+:::::
+
+## Evaluar Múltiples Modelos
+
+::::: columns
+::: {.column style="font-size:15px"}
+Hemos cubierto todas las partes del flujo de trabajo del aprendizaje supervisado, pero como decidimos que modelo utilizar en primer lugar?. Se trata de una pregunta compleja, en la que la respuesta depende de nuestra situación. Sin embargo, existen algunos principios que pueden guiarnos a la hora de tomar una decisión:
+
+-   El tamaño de nuestro conjunto de datos, es un factor a considerar,\
+    -   menos características implica un modelo más sencillo.\
+    -   esto puede reducir el tiempo de entrenamiento.\
+    -   además, algunos modelos como las redes neuronales artificiales requieren una gran cantidad de datos para funcionar bien.
+-   Interpretabilidad\
+    -   Puede que necesitemos un modelo interpretable, para poder explicar a las partes interesadas como se hicieron las predicciones.\
+    -   Podemos tomar como ejemplo la Regresión Lineal, con la que podemos calcular e interpretar los coeficientes del modelo.
+-   Flexibilidad\
+    -   Puede ser importante para obtener predicciones lo más precisas posibles. Por lo general, los modelos flexibles hacen menos supociones sobre los datos, por ejemplo,\
+    -   Un modelo KNN no supone una relación lineal entre las características y el objetivo.
+
+Ten encuenta que Scikit-Learn, permite utilizar los mismos métodos para la mayoría de los modelos, esto facilita su comparación.
+:::
+
+::: {.column style="font-size:15px"}
+-   Rendimiento del modelo de regresión:\
+    -   RMSE\
+    -   R-squared
+-   Rendimiento modelos de clasificación:\
+    -   Accuracy\
+    -   Confusion matrix\
+    -   Precisión, recall, F1-score\
+    -   ROC AUC
+-   Varios modelos y evaluar el rendimiento desde el primer momento
+
+#### Una nota sobre la escalabilidad
+
+Recordemos que el rendimiento de algunos modelos son afectados por la scalabilidad
+
+-   KNN
+
+-   Linear Regression (Ridge, Lasso)
+
+-   Logistic Regression
+
+-   Redes Neuronales Artificiales
+
+Así que, por normal general, es mejor escalar nuestros datos antes de evaluar los modelos. Evaluaremos tres modelos para la clasificación binaria del genero de las canciones:
+
+-   KNN
+
+-   Logistic Regression
+
+-   DecisionTreeClassifier
+:::
+:::::
+
+## Evaluación de tres modelos de clasificación
+
+::::: columns
+::: {.column style="font-size:15px"}
+```{python}
+import matplotlib.pyplot as plt
+from sklearn.preprocessing import StandardScaler 
+from sklearn.model_selection import cross_val_score, KFold, train_test_split
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn.tree import DecisionTreeClassifier
+
+X = music_df.drop("genre", axis=1).values
+y = music_df["genre"].values
+X_train, X_test, y_train, y_test = train_test_split(X,y,test_size = 0.2, random_state = 42)
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+
+# Creamos un diccionario con los nombres de nuestros modelos 
+models = {"Logistic Regression": LogisticRegression(), "KNN": KNeighborsClassifier(),
+"Decision Tree": DecisionTreeClassifier()}
+
+# Lista vacia para almacenar los resultados 
+results = []
+
+# Recorremos en bucle los modelos de nuestro diccionario 
+for model in models.values(): 
+  kf = KFold(n_splits = 6, random_state = 42, shuffle = True)
+  cv_results = cross_val_score(model, X_train_scaled, y_train, cv = kf)
+  results.append(cv_results)
+  
+```
+:::
+
+::: {.column style="font-size:15px"}
+```{python}
+# Creamos un diagrama de caja de nuestros resultados 
+plt.boxplot(results, labels = models.keys())
+plt.show()
+```
+
+#### Evaluando el conjunto de pruebas 
+
+```{python}
+for name, model in models.items():
+  model.fit(X_train_scaled, y_train)
+  test_score = model.score(X_test_scaled, y_test)
+  print("{} Test set Accuracy: {}".format(name, test_score))
+```
 :::
 :::::
