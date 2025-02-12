@@ -1143,15 +1143,163 @@ Para crear variables ficticias podemos usar:
 
 #### Data Music
 
-En este capitulo trabajaremos con un conjunto de datos de música, donde:
+En este capitulo trabajaremos con un conjunto de datos de música, tanto para problemas de clasificación, como de regresión, donde:
 
--   **popularity:** Target variable
+-   **popularity:** Target variable.
 
--   **genre:** variable categorica
+-   **genre:** variable categorica.
+
+![](img/g_27.png)
+:::
+:::::
+
+## EDA w/ con características categoricas
+
+::::: columns
+::: {.column style="font-size:15px"}
+Primero construiremos un modelo de regresión, utilizando todas las características del conjunto de datos, para predecir la popularidad de las canciones, existe una característica categórica, el genero con 10 valores posibles.
+
+![](img/g_28.png){fig-align="center" width="500"}
+
+Este diagrama de caja, muestra como varia la popularidad según el genero.
+
+#### Regresión Lineal
 
 ```{python}
-music = pd.read_csv("music_clean.csv")
-music.head(n=2)
+import pandas as pd
+from sklearn.model_selection import cross_val_score, KFold
+from sklearn.linear_model import LinearRegression
+music_dummies = pd.read_csv("music_clean.csv")
+X = music_dummies.drop("popularity", axis = 1).values
+y = music_dummies["popularity"].values
+X_train, X_test, y_train, y_test = train_test_split(X,y,test_size = 0.2, random_state = 42)
 ```
+:::
+
+::: {.column style="font-size:15px"}
+```{python}
+# Instanciamos el modelo de Regresión Lineal
+kf = KFold(n_splits = 5, shuffle = True, random_state = 42)
+linreg = LinearRegression()
+linreg_cv = cross_val_score(linreg, X_train, y_train, cv = kf, scoring = "neg_mean_squared_error")
+# neg_mean_squared_error: devuelve em MSE negativo. Esto se deba a que las métricas
+# de Validación cruzada de scikit-learn presuponen que una puntuación más alta es 
+# mejor, por lo que el MSE se cambia a negativo para contrarrestarlo. 
+print(np.sqrt(-linreg_cv))
+
+```
+:::
+:::::
+
+## Tratamiento de los datos faltantes
+
+::::: columns
+::: {.column style="font-size:15px"}
+Veamos ahora como tratar los datos que faltan. Cuando no hay ningún valor para una característica en una fila concreta, hablamos de datos que falta. Esto puede ocurrir:
+
+-   Porqué no hubo observación.
+
+-   O porqué los datos pueden estar corruptos
+
+Sea cual sea el motivo tenemos que solucionarlo, antes hemos trabajado con el conjunto de datos de música. Continuemos con el mismo.
+
+Esto lo hacemos con:
+
+```{bash}
+print(music_df.isna().sum().sort_values())
+```
+
+![](img/g_29.png){fig-align="center" width="500"}
+
+Como podemos ver a cada característica le faltan entre 8 a 200 valores. Un enfoque habitual consiste en eliminar las observaciones emitidas que representen menos del 5% de todos los datos.Para ello, utilizamos el método `.dropna()` de pandas.
+
+```{bash}
+music_df = music_df.dropna(subset = ["genre", "popularity", "loudness", "liveness", "tempo"])
+print(music_df.isna().sum().sort_values())
+
+```
+:::
+
+::: {.column style="font-size:15px"}
+Volviendo a comprobar el DataFrame, vemos menos valores pérdidos:
+
+![](img/g_30.png){fig-align="center" width="500"}
+
+#### Imputando Valores Pérdidos
+
+Otra opción es, imputar valores pérdidos, esto supone hacer una estimación sobre cuales podrían ser los valores que faltan.
+
+-   Podemos imputar la media de todas las entradas, no omitidas de una característica determinada.
+
+-   También podemos utilizar otros valores como la mediana.
+
+-   Para los valores categóricos, solemos imputar el valor más frecuente. Hay que tener en cuenta que debemos dividir nuestros datos antes de imputarlos, para evitar que se filtre información del conjunto de pruebas a nuestro modelo.
+
+-   Este concepto se conoce como fuga de datos.
+:::
+:::::
+
+## Imputando valores pérdidos
+
+::::: columns
+::: {.column style="font-size:15px"}
+### Imputación con Scikit-Learn
+
+A continuación se muestra un flujo de trabajo de imputación para predecir la popularidad de una canción.
+
+```{bash}
+from sklearn.impute import SimpleImputer 
+X_cat = music_df["genre"].values.reshape(-1,1)
+X_num = music_df.drop(["genre", "popularity"], axis = 1).values
+y = music_df["popularity"].values
+X_train_cat, X_test_cat, y_train, y_test = train_test_split(X_cat, y, test_size = 0.2,
+random_state = 12)
+X_train_num, X_test_num, y_train, y_test = train_test_split(X_num, y, test_size = 0.2,
+random_state = 12)
+# para imputar los valores categoricos pérdidos, instanciamos: 
+imp_cat = SimpleImputer(strategy = "most_frequent")
+X_train_cat = imp_cat.fit_transform(X_train_cat)
+X_test_cat = imp_cat.transform(X_test_cat)
+
+# Para nuestros datos numericos instanciamos otro imputador
+imp_num = SimpleImputer() # Por defecto, rellena los valores con la media 
+X_train_num = imp_num.fit_transform(X_train_num)
+X_test_num = imp_num.fit_transform(X_test_num)
+# Combinamos nuestros datos de entrenamiento 
+X_train = np.append(X_train_num, X_train_cat, axis = 1) 
+# Repetimos esto, para nuestros datos de prueba 
+X_test = np.append(X_test_num, X_test_cat, axis = 1)
+
+```
+
+Debido a su capacidad para transformar nuestros datos a los imputadores se les conoce como transformadores.
+
+#### Imputando con pipeline 
+
+También podemos imputar utilizando una canalización, que es un objeto utilizado para ejecutar una serie de transformación y construir un modelo en un único flujo de trabajo.
+:::
+
+::: {.column style="font-size:15px"}
+```{bash}
+from sklearn.pipeline import Pipeline 
+music_df = music_df.dropna(subset = ["genre", "popularity", "loudness", "liveness", "tempo"])
+music_df["genre"] = np.where(music_df["genre"] == "Rock",1,0)
+X = music_df.drop("genre", axis = 1).values
+y = music_df["genre"].values
+```
+
+Para construir un pipeline, construimos una lista de pasos que contengan tuplas con los nombres de los pasos especificados:
+
+```{bash}
+steps = [("imputation", SimpleImputer()),("logistic_regression", LogisticRegression())]
+pipeline = Pipeline(steps)
+X_train, X_test, y_train, y_test = train_test_split(X,y, test_size = 0.3, random_state = 42)
+pipeline.fit(X_train, y_train)
+pipeline.score(X_test, y_test)
+```
+
+![](img/g_31.png){width="500"}
+
+Debemos tener encuenta que, en un pipeline, todos los pasos excepto el último deben ser transformadores.
 :::
 :::::

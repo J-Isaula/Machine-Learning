@@ -11,7 +11,7 @@
   <meta name="generator" content="quarto-1.5.57">
 
   <meta name="author" content="Lic. Juan Isaula">
-  <meta name="dcterms.date" content="2025-02-06">
+  <meta name="dcterms.date" content="2025-02-11">
   <title>Cientifico de Machine Learning</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -409,7 +409,7 @@ Lic. Juan Isaula
     </div>
 </div>
 
-  <p class="date">February 6, 2025</p>
+  <p class="date">February 11, 2025</p>
 </section>
 <section id="introducción" class="slide level2">
 <h2>Introducción</h2>
@@ -526,7 +526,7 @@ Lic. Juan Isaula
 <p><img data-src="img/g_disp5.png" width="263"></p>
 <p>Se prevee que los clientes con la zona de fondo gris se darán de baja y los clientes en zona con fondo rojo no lo harán. Este límite se utilizaría para hacer predicciones sobre datos no vistos.</p>
 <h3 id="ajuste-de-un-modelo-de-clasificación-usando-scikit-learn"><strong>Ajuste de un modelo de clasificación usando Scikit-learn</strong></h3>
-<div id="dd831b8c" class="cell" data-execution_count="1">
+<div id="36c40111" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd </span>
 <span id="cb2-2"><a href=""></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb2-3"><a href=""></a><span class="im">from</span> sklearn.neighbors <span class="im">import</span> KNeighborsClassifier</span>
@@ -547,14 +547,14 @@ Lic. Juan Isaula
 <div class="columns">
 <div class="column" style="font-size:16px">
 <p>A contininuación instanciamos nuestro modelo KNeighborsClassifier:</p>
-<div id="fa29874d" class="cell" data-execution_count="2">
+<div id="a1c65ddb" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a>knn <span class="op">=</span> KNeighborsClassifier(n_neighbors <span class="op">=</span> <span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Ahora podemos ajustar nuestro clasificador a nuestros datos etiquetados aplicando el método <code>.fit()</code> y pasandole dos argumentos (los valores de las características (X) y los valores objetivos (y)):</p>
-<div id="fed23c19" class="cell" data-execution_count="3">
+<div id="ae7957ba" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a>knn.fit(X,y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
-<style>#sk-container-id-1 {
+<div class="cell-output cell-output-display" data-execution_count="237">
+<style>#sk-container-id-13 {
   /* Definition of color scheme common for light and dark mode */
   --sklearn-color-text: #000;
   --sklearn-color-text-muted: #666;
@@ -585,15 +585,15 @@ Lic. Juan Isaula
   }
 }
 
-#sk-container-id-1 {
+#sk-container-id-13 {
   color: var(--sklearn-color-text);
 }
 
-#sk-container-id-1 pre {
+#sk-container-id-13 pre {
   padding: 0;
 }
 
-#sk-container-id-1 input.sk-hidden--visually {
+#sk-container-id-13 input.sk-hidden--visually {
   border: 0;
   clip: rect(1px 1px 1px 1px);
   clip: rect(1px, 1px, 1px, 1px);
@@ -605,7 +605,7 @@ Lic. Juan Isaula
   width: 1px;
 }
 
-#sk-container-id-1 div.sk-dashed-wrapped {
+#sk-container-id-13 div.sk-dashed-wrapped {
   border: 1px dashed var(--sklearn-color-line);
   margin: 0 0.4em 0.5em 0.4em;
   box-sizing: border-box;
@@ -613,7 +613,7 @@ Lic. Juan Isaula
   background-color: var(--sklearn-color-background);
 }
 
-#sk-container-id-1 div.sk-container {
+#sk-container-id-13 div.sk-container {
   /* jupyter's `normalize.less` sets `[hidden] { display: none; }`
      but bootstrap.min.css set `[hidden] { display: none !important; }`
      so we also need the `!important` here to be able to override the
@@ -623,7 +623,7 @@ Lic. Juan Isaula
   position: relative;
 }
 
-#sk-container-id-1 div.sk-text-repr-fallback {
+#sk-container-id-13 div.sk-text-repr-fallback {
   display: none;
 }
 
@@ -639,14 +639,14 @@ div.sk-item {
 
 /* Parallel-specific style estimator block */
 
-#sk-container-id-1 div.sk-parallel-item::after {
+#sk-container-id-13 div.sk-parallel-item::after {
   content: "";
   width: 100%;
   border-bottom: 2px solid var(--sklearn-color-text-on-default-background);
   flex-grow: 1;
 }
 
-#sk-container-id-1 div.sk-parallel {
+#sk-container-id-13 div.sk-parallel {
   display: flex;
   align-items: stretch;
   justify-content: center;
@@ -654,28 +654,28 @@ div.sk-item {
   position: relative;
 }
 
-#sk-container-id-1 div.sk-parallel-item {
+#sk-container-id-13 div.sk-parallel-item {
   display: flex;
   flex-direction: column;
 }
 
-#sk-container-id-1 div.sk-parallel-item:first-child::after {
+#sk-container-id-13 div.sk-parallel-item:first-child::after {
   align-self: flex-end;
   width: 50%;
 }
 
-#sk-container-id-1 div.sk-parallel-item:last-child::after {
+#sk-container-id-13 div.sk-parallel-item:last-child::after {
   align-self: flex-start;
   width: 50%;
 }
 
-#sk-container-id-1 div.sk-parallel-item:only-child::after {
+#sk-container-id-13 div.sk-parallel-item:only-child::after {
   width: 0;
 }
 
 /* Serial-specific style estimator block */
 
-#sk-container-id-1 div.sk-serial {
+#sk-container-id-13 div.sk-serial {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -693,14 +693,14 @@ clickable and can be expanded/collapsed.
 
 /* Pipeline and ColumnTransformer style (default) */
 
-#sk-container-id-1 div.sk-toggleable {
+#sk-container-id-13 div.sk-toggleable {
   /* Default theme specific background. It is overwritten whether we have a
   specific estimator or a Pipeline/ColumnTransformer */
   background-color: var(--sklearn-color-background);
 }
 
 /* Toggleable label */
-#sk-container-id-1 label.sk-toggleable__label {
+#sk-container-id-13 label.sk-toggleable__label {
   cursor: pointer;
   display: flex;
   width: 100%;
@@ -713,13 +713,13 @@ clickable and can be expanded/collapsed.
   gap: 0.5em;
 }
 
-#sk-container-id-1 label.sk-toggleable__label .caption {
+#sk-container-id-13 label.sk-toggleable__label .caption {
   font-size: 0.6rem;
   font-weight: lighter;
   color: var(--sklearn-color-text-muted);
 }
 
-#sk-container-id-1 label.sk-toggleable__label-arrow:before {
+#sk-container-id-13 label.sk-toggleable__label-arrow:before {
   /* Arrow on the left of the label */
   content: "▸";
   float: left;
@@ -727,13 +727,13 @@ clickable and can be expanded/collapsed.
   color: var(--sklearn-color-icon);
 }
 
-#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {
+#sk-container-id-13 label.sk-toggleable__label-arrow:hover:before {
   color: var(--sklearn-color-text);
 }
 
 /* Toggleable content - dropdown */
 
-#sk-container-id-1 div.sk-toggleable__content {
+#sk-container-id-13 div.sk-toggleable__content {
   max-height: 0;
   max-width: 0;
   overflow: hidden;
@@ -742,12 +742,12 @@ clickable and can be expanded/collapsed.
   background-color: var(--sklearn-color-unfitted-level-0);
 }
 
-#sk-container-id-1 div.sk-toggleable__content.fitted {
+#sk-container-id-13 div.sk-toggleable__content.fitted {
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-0);
 }
 
-#sk-container-id-1 div.sk-toggleable__content pre {
+#sk-container-id-13 div.sk-toggleable__content pre {
   margin: 0.2em;
   border-radius: 0.25em;
   color: var(--sklearn-color-text);
@@ -755,79 +755,79 @@ clickable and can be expanded/collapsed.
   background-color: var(--sklearn-color-unfitted-level-0);
 }
 
-#sk-container-id-1 div.sk-toggleable__content.fitted pre {
+#sk-container-id-13 div.sk-toggleable__content.fitted pre {
   /* unfitted */
   background-color: var(--sklearn-color-fitted-level-0);
 }
 
-#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {
+#sk-container-id-13 input.sk-toggleable__control:checked~div.sk-toggleable__content {
   /* Expand drop-down */
   max-height: 200px;
   max-width: 100%;
   overflow: auto;
 }
 
-#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {
+#sk-container-id-13 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {
   content: "▾";
 }
 
 /* Pipeline/ColumnTransformer-specific style */
 
-#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {
+#sk-container-id-13 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {
   color: var(--sklearn-color-text);
   background-color: var(--sklearn-color-unfitted-level-2);
 }
 
-#sk-container-id-1 div.sk-label.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+#sk-container-id-13 div.sk-label.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
   background-color: var(--sklearn-color-fitted-level-2);
 }
 
 /* Estimator-specific style */
 
 /* Colorize estimator box */
-#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {
+#sk-container-id-13 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {
   /* unfitted */
   background-color: var(--sklearn-color-unfitted-level-2);
 }
 
-#sk-container-id-1 div.sk-estimator.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+#sk-container-id-13 div.sk-estimator.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-2);
 }
 
-#sk-container-id-1 div.sk-label label.sk-toggleable__label,
-#sk-container-id-1 div.sk-label label {
+#sk-container-id-13 div.sk-label label.sk-toggleable__label,
+#sk-container-id-13 div.sk-label label {
   /* The background is the default theme color */
   color: var(--sklearn-color-text-on-default-background);
 }
 
 /* On hover, darken the color of the background */
-#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {
+#sk-container-id-13 div.sk-label:hover label.sk-toggleable__label {
   color: var(--sklearn-color-text);
   background-color: var(--sklearn-color-unfitted-level-2);
 }
 
 /* Label box, darken color on hover, fitted */
-#sk-container-id-1 div.sk-label.fitted:hover label.sk-toggleable__label.fitted {
+#sk-container-id-13 div.sk-label.fitted:hover label.sk-toggleable__label.fitted {
   color: var(--sklearn-color-text);
   background-color: var(--sklearn-color-fitted-level-2);
 }
 
 /* Estimator label */
 
-#sk-container-id-1 div.sk-label label {
+#sk-container-id-13 div.sk-label label {
   font-family: monospace;
   font-weight: bold;
   display: inline-block;
   line-height: 1.2em;
 }
 
-#sk-container-id-1 div.sk-label-container {
+#sk-container-id-13 div.sk-label-container {
   text-align: center;
 }
 
 /* Estimator-specific */
-#sk-container-id-1 div.sk-estimator {
+#sk-container-id-13 div.sk-estimator {
   font-family: monospace;
   border: 1px dotted var(--sklearn-color-border-box);
   border-radius: 0.25em;
@@ -837,18 +837,18 @@ clickable and can be expanded/collapsed.
   background-color: var(--sklearn-color-unfitted-level-0);
 }
 
-#sk-container-id-1 div.sk-estimator.fitted {
+#sk-container-id-13 div.sk-estimator.fitted {
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-0);
 }
 
 /* on hover */
-#sk-container-id-1 div.sk-estimator:hover {
+#sk-container-id-13 div.sk-estimator:hover {
   /* unfitted */
   background-color: var(--sklearn-color-unfitted-level-2);
 }
 
-#sk-container-id-1 div.sk-estimator.fitted:hover {
+#sk-container-id-13 div.sk-estimator.fitted:hover {
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-2);
 }
@@ -936,7 +936,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 
 /* "?"-specific style due to the `<a>` HTML tag */
 
-#sk-container-id-1 a.estimator_doc_link {
+#sk-container-id-13 a.estimator_doc_link {
   float: right;
   font-size: 1rem;
   line-height: 1em;
@@ -951,29 +951,29 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
   border: var(--sklearn-color-unfitted-level-1) 1pt solid;
 }
 
-#sk-container-id-1 a.estimator_doc_link.fitted {
+#sk-container-id-13 a.estimator_doc_link.fitted {
   /* fitted */
   border: var(--sklearn-color-fitted-level-1) 1pt solid;
   color: var(--sklearn-color-fitted-level-1);
 }
 
 /* On hover */
-#sk-container-id-1 a.estimator_doc_link:hover {
+#sk-container-id-13 a.estimator_doc_link:hover {
   /* unfitted */
   background-color: var(--sklearn-color-unfitted-level-3);
   color: var(--sklearn-color-background);
   text-decoration: none;
 }
 
-#sk-container-id-1 a.estimator_doc_link.fitted:hover {
+#sk-container-id-13 a.estimator_doc_link.fitted:hover {
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-3);
 }
-</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>KNeighborsClassifier(n_neighbors=15)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked=""><label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>KNeighborsClassifier</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.neighbors.KNeighborsClassifier.html">?<span>Documentation for KNeighborsClassifier</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted"><pre>KNeighborsClassifier(n_neighbors=15)</pre></div> </div></div></div></div>
+</style><div id="sk-container-id-13" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>KNeighborsClassifier(n_neighbors=15)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-13" type="checkbox" checked=""><label for="sk-estimator-id-13" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>KNeighborsClassifier</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.neighbors.KNeighborsClassifier.html">?<span>Documentation for KNeighborsClassifier</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted"><pre>KNeighborsClassifier(n_neighbors=15)</pre></div> </div></div></div></div>
 </div>
 </div>
 <p>Aquí tenemos un conjunto de observaciones nuevas:</p>
-<div id="0b004d8d" class="cell" data-execution_count="4">
+<div id="53c3b087" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a>X_new <span class="op">=</span> np.array([[<span class="fl">56.8</span>, <span class="fl">17.5</span>],[<span class="fl">24.4</span>, <span class="fl">24.1</span>], [<span class="fl">50.1</span>, <span class="fl">10.9</span>]])</span>
 <span id="cb6-2"><a href=""></a><span class="bu">print</span>(X_new.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -981,7 +981,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <p>Vemos que X_new tiene 3 filas (observaciones) y 2 columnas (características). Utilizamos el método <code>.predict()</code> del clasificador y le pasamos los datos no vistos como una matriz numpy que contiene características en columnas y observaciones en filas:</p>
-<div id="a721c559" class="cell" data-execution_count="5">
+<div id="91f9419b" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href=""></a>predicciones <span class="op">=</span> knn.predict(X_new)</span>
 <span id="cb8-2"><a href=""></a><span class="bu">print</span>(<span class="st">'predictiones: </span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(predicciones))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -996,7 +996,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </ul>
 <p><strong>Otro caso</strong></p>
 <p>Ahora trataremos <code>account_length</code> y <code>customer_service_calls</code> como características porque la antiguedad de la cuenta indica fidelidad del cliente, y las llamadas frecuentes al servicio de atención al cliente pueden ser señal de insatisfacción, y ambos piueden ser buenos predictores de la rotación.</p>
-<div id="591ccfbd" class="cell" data-execution_count="6">
+<div id="8ab98089" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href=""></a>X <span class="op">=</span> churn_df[[<span class="st">"account_length"</span>, <span class="st">"customer_service_calls"</span>]].values</span>
 <span id="cb10-2"><a href=""></a>y <span class="op">=</span> churn_df[[<span class="st">"churn"</span>]].values</span>
 <span id="cb10-3"><a href=""></a></span>
@@ -1007,7 +1007,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <span id="cb10-8"><a href=""></a>y_pred <span class="op">=</span> knn.predict(X_new)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Como podemos notar instanciamos el modelo con 6 vecinos. Los resultados de las predicciones con estas nuevas características y los 6 vecinos son:</p>
-<div id="cb504a1d" class="cell" data-execution_count="7">
+<div id="7dede1e5" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href=""></a><span class="bu">print</span>(<span class="st">'predicciones: </span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(y_pred))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>predicciones: [0 1 0]</code></pre>
@@ -1032,7 +1032,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <p><img data-src="img/g_disp6.png" width="353"></p>
 </div><div class="column" style="font-size:16px">
 <p>Para ello importamos <code>train_test_split</code> y le pasamos nuestras características y objetivos</p>
-<div id="ff2fe90b" class="cell" data-execution_count="8">
+<div id="d7add0a7" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href=""></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
 <span id="cb13-2"><a href=""></a>X <span class="op">=</span> churn_df[[<span class="st">"total_day_charge"</span>, <span class="st">"total_eve_charge"</span>]].values</span>
 <span id="cb13-3"><a href=""></a>y <span class="op">=</span> churn_df[[<span class="st">"churn"</span>]].values</span>
@@ -1042,7 +1042,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <p>normalmente utilizamos entre un 20% o 30% de nuestros datos como conjunto de prueba, al fijar el argumento <code>test_size = 0.3</code> utilizamos el 30%, el argumento <code>random_state = 21</code> establece una semilla para un generador de números aleatorios que divide los datos, utilizar el mismo número al repetir este paso nos permite reproducir la división exacta y nuestros resultados posteriores. Se recomienda garantizar que nuestra división refleje la proporción de etiquetas en nuestros datos, por tanto, si la rotación se produce en el 10% de las observaciones queremos que el 10% de las etiquetas de los conjuntos de entrenamiento y prueba representen la rotación, esto se consigue al establecer <code>stratify = y</code>.</p>
 <p><strong>train_test_split()</strong> devuelve 4 matrices los datos de entrenamiento, los datos de prueba, las etiquetas de entrenamiento y las etiquetas de pruebas (X_train, X_test, y_train, y_test).</p>
 <p>Ahora, instanciamos un modelo KNN y lo ajustamos a los datos de entrenamiento. Para comprobar la precisión utilizamos el método <code>.score()</code></p>
-<div id="d5d3c9ca" class="cell" data-execution_count="9">
+<div id="718ee5b6" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href=""></a>knn <span class="op">=</span> KNeighborsClassifier(n_neighbors <span class="op">=</span> <span class="dv">6</span>)</span>
 <span id="cb14-2"><a href=""></a>knn.fit(X_train, y_train)</span>
 <span id="cb14-3"><a href=""></a><span class="bu">print</span>(knn.score(X_test, y_test))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1064,7 +1064,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <p>También, podemos interpretar <span class="math inline">\(k\)</span> mediante una curva de complejidad del modelo.</p>
 </div><div class="column" style="font-size:17px">
 <p>Con un modelo KNN podemos calcular la precisión en los conjuntos de entrenamiento y prueba, utilizado valores <span class="math inline">\(k-incrementales\)</span>. Y representar los resultados de forma gráfica, creamos diccionarios vacios para almacenar las precisiones de entramiento y prueba y una matriz que contiene un rango de valores <span class="math inline">\(k\)</span>, construyendo varios modelos que utilizan un número diferente de vecinos.</p>
-<div id="f7b9b20e" class="cell" data-execution_count="10">
+<div id="4d58537a" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href=""></a>train_accuracies <span class="op">=</span> {}</span>
 <span id="cb16-2"><a href=""></a>test_accuracies <span class="op">=</span> {}</span>
 <span id="cb16-3"><a href=""></a>neighbors <span class="op">=</span> np.arange(<span class="dv">1</span>,<span class="dv">26</span>)</span>
@@ -1081,7 +1081,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <h2></h2>
 <div class="columns">
 <div class="column" style="font-size:15px">
-<div id="5b3a9a89" class="cell" data-execution_count="11">
+<div id="7e409d96" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href=""></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb17-2"><a href=""></a>plt.figure(figsize <span class="op">=</span> (<span class="dv">8</span>,<span class="dv">6</span>))</span>
 <span id="cb17-3"><a href=""></a>plt.title(<span class="st">"KNN: Número variable de vecinos"</span>)</span>
@@ -1114,7 +1114,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <div class="columns">
 <div class="column" style="font-size:15px">
 <p>En las tareas de regresión la variable objetivo suele tener valores continuos, como el PIB, el precio de una vivienda, etc. Para conceptualizar los problemas de regresión, utilicemos un conjunto de datos sobre la salud de las mujeres para predecir los niveles de glucosa en sangre.</p>
-<div id="d42ca207" class="cell" data-execution_count="12">
+<div id="2360626d" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb18-2"><a href=""></a>diabetes_df <span class="op">=</span> pd.read_csv(<span class="st">"diabetes_clean.csv"</span>)</span>
 <span id="cb18-3"><a href=""></a><span class="bu">print</span>(diabetes_df.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1147,7 +1147,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div><div class="column" style="font-size:17px">
 <h3 id="crear-arreglos-de-características-y-objetivos">Crear arreglos de características y objetivos</h3>
 <p>Recordemos que scikit-learn requiere características y valores objetivos en variables distintas <span class="math inline">\(X\)</span> e <span class="math inline">\(y\)</span>. Para utilizar todas las características de nuestro conjunto de datos eliminamos nuestro objetivo.</p>
-<div id="f3710e98" class="cell" data-execution_count="13">
+<div id="8777ce99" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href=""></a>X <span class="op">=</span> diabetes_df.drop(<span class="st">"glucose"</span>, axis <span class="op">=</span> <span class="dv">1</span>).values</span>
 <span id="cb20-2"><a href=""></a>y <span class="op">=</span> diabetes_df[<span class="st">"glucose"</span>].values</span>
 <span id="cb20-3"><a href=""></a><span class="bu">print</span>(<span class="bu">type</span>(X), <span class="bu">type</span>(y))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1156,7 +1156,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <h3 id="predicción-de-niveles-de-glucosa-en-sangre-apartir-de-una-única-característica-el-bmi.">Predicción de niveles de glucosa en sangre apartir de una única característica el bmi.</h3>
-<div id="1b02283c" class="cell" data-execution_count="14">
+<div id="935d0916" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href=""></a>X_bmi <span class="op">=</span> X[:, <span class="dv">4</span>]</span>
 <span id="cb22-2"><a href=""></a><span class="bu">print</span>(y.shape, X_bmi.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1164,7 +1164,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <p>Al comprobar la forma de <span class="math inline">\(X_{bmi}\)</span> e <span class="math inline">\(y\)</span> vemos que ambas son matrices unidimencionales, esto esta bien para <span class="math inline">\(y\)</span>. Pero nuestras características deben estar formateadas como una matriz bidimensional para que scikit-learn las acepte, para esto:</p>
-<div id="c2f6d7fc" class="cell" data-execution_count="15">
+<div id="c2ab4950" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href=""></a>X_bmi <span class="op">=</span> X_bmi.reshape(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>)</span>
 <span id="cb24-2"><a href=""></a><span class="bu">print</span>(X_bmi.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1178,7 +1178,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <h2>Plotting glucose vs bmi</h2>
 <div class="columns">
 <div class="column" style="font-size:15px">
-<div id="951c23c3" class="cell" data-execution_count="16">
+<div id="70f1b8e2" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href=""></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb26-2"><a href=""></a>plt.scatter(X_bmi, y)</span>
 <span id="cb26-3"><a href=""></a>plt.ylabel(<span class="st">"Glucosa en la sangre (mg/dl)"</span>)</span>
@@ -1196,7 +1196,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div><div class="column" style="font-size:15px">
 <h3 id="fitting-modelo-de-regresión-lineal">Fitting modelo de regresión lineal</h3>
 <p>Este modelo llamado regresión lineal ajusta una linea recta a nuestros datos. Lo veremos más a detalle posteriormente, pero antes veamos como ajustarla y como trazar predicciones.</p>
-<div id="93e0d709" class="cell" data-execution_count="17">
+<div id="0642e769" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href=""></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LinearRegression</span>
 <span id="cb27-2"><a href=""></a>reg <span class="op">=</span> LinearRegression()</span>
 <span id="cb27-3"><a href=""></a>reg.fit(X_bmi, y)</span>
@@ -1276,7 +1276,7 @@ y = a_1x1 + a_2x_2 + . . . + a_nx_n +b
 <p>Para los modelos de regresión lineal múltiple <code>scikit-learn</code> espera una variable cada uno para los valores de característica y objetivo.</p>
 <p><strong>Simulando modelo de regresión lineal múltiple</strong></p>
 <p>Vamos a realizar una regresión lineal para predecir los niveles de glucosa en sangre, utilizando todas las características del conjunto de datos de la diabetes.</p>
-<div id="42c8a72a" class="cell" data-execution_count="18">
+<div id="a269e160" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href=""></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
 <span id="cb28-2"><a href=""></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LinearRegression</span>
 <span id="cb28-3"><a href=""></a></span>
@@ -1288,8 +1288,8 @@ y = a_1x1 + a_2x_2 + . . . + a_nx_n +b
 <span id="cb28-9"><a href=""></a></span>
 <span id="cb28-10"><a href=""></a><span class="co"># Ajustamos el modelo en el conjunto de entrenamiento</span></span>
 <span id="cb28-11"><a href=""></a>reg_all.fit(X_train, y_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="18">
-<style>#sk-container-id-2 {
+<div class="cell-output cell-output-display" data-execution_count="252">
+<style>#sk-container-id-14 {
   /* Definition of color scheme common for light and dark mode */
   --sklearn-color-text: #000;
   --sklearn-color-text-muted: #666;
@@ -1320,15 +1320,15 @@ y = a_1x1 + a_2x_2 + . . . + a_nx_n +b
   }
 }
 
-#sk-container-id-2 {
+#sk-container-id-14 {
   color: var(--sklearn-color-text);
 }
 
-#sk-container-id-2 pre {
+#sk-container-id-14 pre {
   padding: 0;
 }
 
-#sk-container-id-2 input.sk-hidden--visually {
+#sk-container-id-14 input.sk-hidden--visually {
   border: 0;
   clip: rect(1px 1px 1px 1px);
   clip: rect(1px, 1px, 1px, 1px);
@@ -1340,7 +1340,7 @@ y = a_1x1 + a_2x_2 + . . . + a_nx_n +b
   width: 1px;
 }
 
-#sk-container-id-2 div.sk-dashed-wrapped {
+#sk-container-id-14 div.sk-dashed-wrapped {
   border: 1px dashed var(--sklearn-color-line);
   margin: 0 0.4em 0.5em 0.4em;
   box-sizing: border-box;
@@ -1348,7 +1348,7 @@ y = a_1x1 + a_2x_2 + . . . + a_nx_n +b
   background-color: var(--sklearn-color-background);
 }
 
-#sk-container-id-2 div.sk-container {
+#sk-container-id-14 div.sk-container {
   /* jupyter's `normalize.less` sets `[hidden] { display: none; }`
      but bootstrap.min.css set `[hidden] { display: none !important; }`
      so we also need the `!important` here to be able to override the
@@ -1358,7 +1358,7 @@ y = a_1x1 + a_2x_2 + . . . + a_nx_n +b
   position: relative;
 }
 
-#sk-container-id-2 div.sk-text-repr-fallback {
+#sk-container-id-14 div.sk-text-repr-fallback {
   display: none;
 }
 
@@ -1374,14 +1374,14 @@ div.sk-item {
 
 /* Parallel-specific style estimator block */
 
-#sk-container-id-2 div.sk-parallel-item::after {
+#sk-container-id-14 div.sk-parallel-item::after {
   content: "";
   width: 100%;
   border-bottom: 2px solid var(--sklearn-color-text-on-default-background);
   flex-grow: 1;
 }
 
-#sk-container-id-2 div.sk-parallel {
+#sk-container-id-14 div.sk-parallel {
   display: flex;
   align-items: stretch;
   justify-content: center;
@@ -1389,28 +1389,28 @@ div.sk-item {
   position: relative;
 }
 
-#sk-container-id-2 div.sk-parallel-item {
+#sk-container-id-14 div.sk-parallel-item {
   display: flex;
   flex-direction: column;
 }
 
-#sk-container-id-2 div.sk-parallel-item:first-child::after {
+#sk-container-id-14 div.sk-parallel-item:first-child::after {
   align-self: flex-end;
   width: 50%;
 }
 
-#sk-container-id-2 div.sk-parallel-item:last-child::after {
+#sk-container-id-14 div.sk-parallel-item:last-child::after {
   align-self: flex-start;
   width: 50%;
 }
 
-#sk-container-id-2 div.sk-parallel-item:only-child::after {
+#sk-container-id-14 div.sk-parallel-item:only-child::after {
   width: 0;
 }
 
 /* Serial-specific style estimator block */
 
-#sk-container-id-2 div.sk-serial {
+#sk-container-id-14 div.sk-serial {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1428,14 +1428,14 @@ clickable and can be expanded/collapsed.
 
 /* Pipeline and ColumnTransformer style (default) */
 
-#sk-container-id-2 div.sk-toggleable {
+#sk-container-id-14 div.sk-toggleable {
   /* Default theme specific background. It is overwritten whether we have a
   specific estimator or a Pipeline/ColumnTransformer */
   background-color: var(--sklearn-color-background);
 }
 
 /* Toggleable label */
-#sk-container-id-2 label.sk-toggleable__label {
+#sk-container-id-14 label.sk-toggleable__label {
   cursor: pointer;
   display: flex;
   width: 100%;
@@ -1448,13 +1448,13 @@ clickable and can be expanded/collapsed.
   gap: 0.5em;
 }
 
-#sk-container-id-2 label.sk-toggleable__label .caption {
+#sk-container-id-14 label.sk-toggleable__label .caption {
   font-size: 0.6rem;
   font-weight: lighter;
   color: var(--sklearn-color-text-muted);
 }
 
-#sk-container-id-2 label.sk-toggleable__label-arrow:before {
+#sk-container-id-14 label.sk-toggleable__label-arrow:before {
   /* Arrow on the left of the label */
   content: "▸";
   float: left;
@@ -1462,13 +1462,13 @@ clickable and can be expanded/collapsed.
   color: var(--sklearn-color-icon);
 }
 
-#sk-container-id-2 label.sk-toggleable__label-arrow:hover:before {
+#sk-container-id-14 label.sk-toggleable__label-arrow:hover:before {
   color: var(--sklearn-color-text);
 }
 
 /* Toggleable content - dropdown */
 
-#sk-container-id-2 div.sk-toggleable__content {
+#sk-container-id-14 div.sk-toggleable__content {
   max-height: 0;
   max-width: 0;
   overflow: hidden;
@@ -1477,12 +1477,12 @@ clickable and can be expanded/collapsed.
   background-color: var(--sklearn-color-unfitted-level-0);
 }
 
-#sk-container-id-2 div.sk-toggleable__content.fitted {
+#sk-container-id-14 div.sk-toggleable__content.fitted {
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-0);
 }
 
-#sk-container-id-2 div.sk-toggleable__content pre {
+#sk-container-id-14 div.sk-toggleable__content pre {
   margin: 0.2em;
   border-radius: 0.25em;
   color: var(--sklearn-color-text);
@@ -1490,79 +1490,79 @@ clickable and can be expanded/collapsed.
   background-color: var(--sklearn-color-unfitted-level-0);
 }
 
-#sk-container-id-2 div.sk-toggleable__content.fitted pre {
+#sk-container-id-14 div.sk-toggleable__content.fitted pre {
   /* unfitted */
   background-color: var(--sklearn-color-fitted-level-0);
 }
 
-#sk-container-id-2 input.sk-toggleable__control:checked~div.sk-toggleable__content {
+#sk-container-id-14 input.sk-toggleable__control:checked~div.sk-toggleable__content {
   /* Expand drop-down */
   max-height: 200px;
   max-width: 100%;
   overflow: auto;
 }
 
-#sk-container-id-2 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {
+#sk-container-id-14 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {
   content: "▾";
 }
 
 /* Pipeline/ColumnTransformer-specific style */
 
-#sk-container-id-2 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {
+#sk-container-id-14 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {
   color: var(--sklearn-color-text);
   background-color: var(--sklearn-color-unfitted-level-2);
 }
 
-#sk-container-id-2 div.sk-label.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+#sk-container-id-14 div.sk-label.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
   background-color: var(--sklearn-color-fitted-level-2);
 }
 
 /* Estimator-specific style */
 
 /* Colorize estimator box */
-#sk-container-id-2 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {
+#sk-container-id-14 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {
   /* unfitted */
   background-color: var(--sklearn-color-unfitted-level-2);
 }
 
-#sk-container-id-2 div.sk-estimator.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+#sk-container-id-14 div.sk-estimator.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-2);
 }
 
-#sk-container-id-2 div.sk-label label.sk-toggleable__label,
-#sk-container-id-2 div.sk-label label {
+#sk-container-id-14 div.sk-label label.sk-toggleable__label,
+#sk-container-id-14 div.sk-label label {
   /* The background is the default theme color */
   color: var(--sklearn-color-text-on-default-background);
 }
 
 /* On hover, darken the color of the background */
-#sk-container-id-2 div.sk-label:hover label.sk-toggleable__label {
+#sk-container-id-14 div.sk-label:hover label.sk-toggleable__label {
   color: var(--sklearn-color-text);
   background-color: var(--sklearn-color-unfitted-level-2);
 }
 
 /* Label box, darken color on hover, fitted */
-#sk-container-id-2 div.sk-label.fitted:hover label.sk-toggleable__label.fitted {
+#sk-container-id-14 div.sk-label.fitted:hover label.sk-toggleable__label.fitted {
   color: var(--sklearn-color-text);
   background-color: var(--sklearn-color-fitted-level-2);
 }
 
 /* Estimator label */
 
-#sk-container-id-2 div.sk-label label {
+#sk-container-id-14 div.sk-label label {
   font-family: monospace;
   font-weight: bold;
   display: inline-block;
   line-height: 1.2em;
 }
 
-#sk-container-id-2 div.sk-label-container {
+#sk-container-id-14 div.sk-label-container {
   text-align: center;
 }
 
 /* Estimator-specific */
-#sk-container-id-2 div.sk-estimator {
+#sk-container-id-14 div.sk-estimator {
   font-family: monospace;
   border: 1px dotted var(--sklearn-color-border-box);
   border-radius: 0.25em;
@@ -1572,18 +1572,18 @@ clickable and can be expanded/collapsed.
   background-color: var(--sklearn-color-unfitted-level-0);
 }
 
-#sk-container-id-2 div.sk-estimator.fitted {
+#sk-container-id-14 div.sk-estimator.fitted {
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-0);
 }
 
 /* on hover */
-#sk-container-id-2 div.sk-estimator:hover {
+#sk-container-id-14 div.sk-estimator:hover {
   /* unfitted */
   background-color: var(--sklearn-color-unfitted-level-2);
 }
 
-#sk-container-id-2 div.sk-estimator.fitted:hover {
+#sk-container-id-14 div.sk-estimator.fitted:hover {
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-2);
 }
@@ -1671,7 +1671,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 
 /* "?"-specific style due to the `<a>` HTML tag */
 
-#sk-container-id-2 a.estimator_doc_link {
+#sk-container-id-14 a.estimator_doc_link {
   float: right;
   font-size: 1rem;
   line-height: 1em;
@@ -1686,29 +1686,29 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
   border: var(--sklearn-color-unfitted-level-1) 1pt solid;
 }
 
-#sk-container-id-2 a.estimator_doc_link.fitted {
+#sk-container-id-14 a.estimator_doc_link.fitted {
   /* fitted */
   border: var(--sklearn-color-fitted-level-1) 1pt solid;
   color: var(--sklearn-color-fitted-level-1);
 }
 
 /* On hover */
-#sk-container-id-2 a.estimator_doc_link:hover {
+#sk-container-id-14 a.estimator_doc_link:hover {
   /* unfitted */
   background-color: var(--sklearn-color-unfitted-level-3);
   color: var(--sklearn-color-background);
   text-decoration: none;
 }
 
-#sk-container-id-2 a.estimator_doc_link.fitted:hover {
+#sk-container-id-14 a.estimator_doc_link.fitted:hover {
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-3);
 }
-</style><div id="sk-container-id-2" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LinearRegression()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox" checked=""><label for="sk-estimator-id-2" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>LinearRegression</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.linear_model.LinearRegression.html">?<span>Documentation for LinearRegression</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted"><pre>LinearRegression()</pre></div> </div></div></div></div>
+</style><div id="sk-container-id-14" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LinearRegression()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-14" type="checkbox" checked=""><label for="sk-estimator-id-14" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>LinearRegression</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.linear_model.LinearRegression.html">?<span>Documentation for LinearRegression</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted"><pre>LinearRegression()</pre></div> </div></div></div></div>
 </div>
 </div>
 </div><div class="column" style="font-size:15px">
-<div id="416c2b06" class="cell" data-execution_count="19">
+<div id="1e91937e" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href=""></a><span class="co"># Predecimos en el conjunto de prueba </span></span>
 <span id="cb29-2"><a href=""></a>y_pred <span class="op">=</span> reg_all.predict(X_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1723,9 +1723,9 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <p><img data-src="img/g_disp12.png" class="quarto-figure quarto-figure-center" width="491"></p>
 </figure>
 </div>
-<div id="8d93ef38" class="cell" data-execution_count="20">
+<div id="b9f44d52" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href=""></a>reg_all.score(X_test, y_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="20">
+<div class="cell-output cell-output-display" data-execution_count="254">
 <pre><code>0.28280468810375115</code></pre>
 </div>
 </div>
@@ -1746,14 +1746,14 @@ MSE = \frac{1}{n}\sum_{i=1}^n (y_i - \hat{y_i})^2
 <li><p>El MSE se mide en unidades de nuestra variable objetivo al cuadrado. Por ejemplo, si un modelo predice un valor en dólares el MSE estará en dólares al cuadrado. Para convertirlo a dólares podemos tomar la raíz cuadrada <span class="math display">\[RMSE = \sqrt{MSE}\]</span></p></li>
 </ul>
 <p>Veamos el calculo con scikit-learn:</p>
-<div id="1d779be1" class="cell" data-execution_count="21">
+<div id="04cb742c" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href=""></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> mean_squared_error</span>
 <span id="cb32-2"><a href=""></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb32-3"><a href=""></a></span>
 <span id="cb32-4"><a href=""></a>mse <span class="op">=</span> mean_squared_error(y_test, y_pred)</span>
 <span id="cb32-5"><a href=""></a>rmse <span class="op">=</span> np.sqrt(mse)</span>
 <span id="cb32-6"><a href=""></a>rmse</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="21">
+<div class="cell-output cell-output-display" data-execution_count="255">
 <pre><code>26.341459582232265</code></pre>
 </div>
 </div>
@@ -1791,7 +1791,7 @@ MSE = \frac{1}{n}\sum_{i=1}^n (y_i - \hat{y_i})^2
 <ul>
 <li>Utilizar más pliegues computacionalmente tiene un desventaja, pues, tiene un costo mayor computacionalmente. Esto se debe a que ajustamos y predecimos mayor cantidad de veces.</li>
 </ul>
-<div id="76489a51" class="cell" data-execution_count="22">
+<div id="087e0445" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href=""></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> cross_val_score, KFold</span>
 <span id="cb34-2"><a href=""></a></span>
 <span id="cb34-3"><a href=""></a><span class="co"># KFold: nos permite establecer una semilla, de manera que nuestros resultado sean</span></span>
@@ -1808,14 +1808,14 @@ MSE = \frac{1}{n}\sum_{i=1}^n (y_i - \hat{y_i})^2
 </div>
 <p>Debemos tener encuenta que la métrica obtenida en <span class="math inline">\(R^2\)</span>, ya que es el score por defecto para la regresión lineal. Esto devuelve 6 resultados, que van desde 0.2 hasta 0.3</p>
 <p>Podemos calcular la puntuación media y la desviación típica:</p>
-<div id="5d8be7a0" class="cell" data-execution_count="23">
+<div id="14d704eb" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href=""></a><span class="bu">print</span>(np.mean(cv_results), np.std(cv_results))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>0.31909697867344783 0.07015320610114195</code></pre>
 </div>
 </div>
 <p>Además, podemos calcular el intervalo de confianza del 95%:</p>
-<div id="d31fa78d" class="cell" data-execution_count="24">
+<div id="a7328a43" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href=""></a><span class="bu">print</span>(np.quantile(cv_results, [<span class="fl">0.025</span>, <span class="fl">0.975</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[0.24088592 0.41580685]</code></pre>
@@ -1848,7 +1848,7 @@ Loss~Function = OLS~loss + \alpha *\sum_{i=1}^n a_i^2
 <li><span class="math inline">\(\alpha\)</span> controla la complejidad del modelo, cuando <span class="math inline">\(\alpha = 0 = OLS\)</span> donde los coeficientes grandes no se penalizan y puede producirse un sobreajuste (overfitting). Un <span class="math inline">\(\alpha\)</span> alto, significa que los coeficientes grandes se penalizan significativamente, lo que puede llevar a un infrajuste (underfitting).</li>
 </ul>
 <p>Para realizar la regresión Ridge en Scikit-Learn:</p>
-<div id="7dfe264d" class="cell" data-execution_count="25">
+<div id="6f21caf9" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href=""></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> Ridge </span>
 <span id="cb40-2"><a href=""></a>scores <span class="op">=</span> []</span>
 <span id="cb40-3"><a href=""></a><span class="cf">for</span> alpha <span class="kw">in</span> [<span class="fl">0.1</span>, <span class="fl">1.0</span>, <span class="fl">10.0</span>, <span class="fl">100.0</span>, <span class="fl">1000.0</span>]:</span>
@@ -1867,7 +1867,7 @@ Loss~Function = OLS~loss + \alpha *\sum_{i=1}^n a_i^2
 <p><span class="math display">\[
 Loss Function = OLS~loss~function + \alpha*\sum_{i=1}^n |a_i|
 \]</span></p>
-<div id="b162aed1" class="cell" data-execution_count="26">
+<div id="ed3de6ef" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href=""></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> Lasso</span>
 <span id="cb42-2"><a href=""></a>scores <span class="op">=</span> []</span>
 <span id="cb42-3"><a href=""></a><span class="cf">for</span> alpha <span class="kw">in</span> [<span class="fl">0.01</span>, <span class="fl">1.0</span>, <span class="fl">10.0</span>, <span class="fl">20.0</span>, <span class="fl">50.0</span>]:</span>
@@ -1901,7 +1901,7 @@ Loss Function = OLS~loss~function + \alpha*\sum_{i=1}^n |a_i|
 <li><p>También es util para identificar que factores son predictores importantes de diversos fenomenos fisicos.</p></li>
 </ul>
 </div><div class="column" style="font-size:15px">
-<div id="b83e1a45" class="cell" data-execution_count="27">
+<div id="a51b2cd1" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href=""></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> Lasso </span>
 <span id="cb44-2"><a href=""></a>X <span class="op">=</span> diabetes_df.drop(<span class="st">"glucose"</span>, axis <span class="op">=</span> <span class="dv">1</span>).values      <span class="co"># matriz de características.</span></span>
 <span id="cb44-3"><a href=""></a>y <span class="op">=</span> diabetes_df[<span class="st">"glucose"</span>].values                     <span class="co"># característica objetivo.</span></span>
@@ -1984,7 +1984,7 @@ Loss Function = OLS~loss~function + \alpha*\sum_{i=1}^n |a_i|
 La puntuación F1 Score favorece a los modelos con precisión y recuperación similares y es una métrica útil si buscamos un modelo que funcione razonablemente bien con ambas métricas.</li>
 </ul>
 <h4 id="matriz-de-confusión-con-scikit-learn">Matriz de confusión con Scikit-Learn</h4>
-<div id="9e9141de" class="cell" data-execution_count="28">
+<div id="0b7eefd1" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href=""></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> classification_report, confusion_matrix </span>
 <span id="cb45-2"><a href=""></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
 <span id="cb45-3"><a href=""></a>X <span class="op">=</span> churn_df[[<span class="st">"total_day_charge"</span>, <span class="st">"total_eve_charge"</span>]].values</span>
@@ -2011,7 +2011,7 @@ La puntuación F1 Score favorece a los modelos con precisión y recuperación si
 <h2>Métricas de desempeño</h2>
 <div class="columns">
 <div class="column" style="font-size:15px">
-<div id="a9ab26f9" class="cell" data-execution_count="29">
+<div id="1a0e9808" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href=""></a><span class="bu">print</span>(classification_report(y_test, y_pred))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>              precision    recall  f1-score   support
@@ -2049,7 +2049,7 @@ weighted avg       0.85      0.87      0.85      1334
 </figure>
 </div>
 <p>El uso de la regresión logística de <code>Scikit-Learn</code> sigue el mismo planteamiento que se utiliza con otros modelos, veamos:</p>
-<div id="1ca2ede6" class="cell" data-execution_count="30">
+<div id="77e44b51" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href=""></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LogisticRegression </span>
 <span id="cb49-2"><a href=""></a>diabetes_df <span class="op">=</span> pd.read_csv(<span class="st">"diabetes_clean.csv"</span>)</span>
 <span id="cb49-3"><a href=""></a>X <span class="op">=</span> diabetes_df.drop(<span class="st">"diabetes"</span>, axis <span class="op">=</span> <span class="dv">1</span>).values</span>
@@ -2062,7 +2062,7 @@ weighted avg       0.85      0.87      0.85      1334
 <p>Podemos predecir las probabilidades de que cada instancia pertenezca a una clase, llamando al método <code>predict_proba()</code></p>
 </div><div class="column" style="font-size:15px">
 <h4 id="predicción-probabilidades">Predicción Probabilidades</h4>
-<div id="034b65cc" class="cell" data-execution_count="31">
+<div id="f4600b5e" class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href=""></a>y_pred_probs <span class="op">=</span> logreg.predict_proba(X_test)[:, <span class="dv">1</span>]</span>
 <span id="cb50-2"><a href=""></a><span class="bu">print</span>(y_pred_probs[:<span class="dv">10</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -2122,7 +2122,7 @@ weighted avg       0.85      0.87      0.85      1334
 <div class="columns">
 <div class="column" style="font-size:15px">
 <p>Veamos como realizar la curva ROC con Scikit-Learn:</p>
-<div id="62f3b48d" class="cell" data-execution_count="32">
+<div id="7d1738b3" class="cell" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href=""></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> roc_curve</span>
 <span id="cb52-2"><a href=""></a>fpr, tpr, thresholds <span class="op">=</span> roc_curve(y_test, y_pred_probs)</span>
 <span id="cb52-3"><a href=""></a>plt.plot([<span class="dv">0</span>,<span class="dv">1</span>],[<span class="dv">0</span>,<span class="dv">1</span>], <span class="st">'k--'</span>)</span>
@@ -2144,14 +2144,14 @@ weighted avg       0.85      0.87      0.85      1334
 <h4 id="roc-auc">ROC AUC</h4>
 <p>Si tenemos un modelo con 1 para la tasa de verdaderos positivos y 0 para la tasa de falsos positivos, este sería el modelo perfecto, por tanto, calculamos el área bajo la curva ROC, una métrica conocida como <code>AUC</code> las puntuaciones van de 0 a 1. Siendo 1 la ideal.</p>
 <p>En este caso veamos como calcular el AUC en scikit-learn:</p>
-<div id="1adda9f7" class="cell" data-execution_count="33">
+<div id="1bf603d2" class="cell" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href=""></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> roc_auc_score</span>
 <span id="cb53-2"><a href=""></a><span class="bu">print</span>(roc_auc_score(y_test, y_pred_probs))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>0.8002483443708608</code></pre>
 </div>
 </div>
-<div id="ea9ea507" class="cell" data-execution_count="34">
+<div id="41710340" class="cell" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href=""></a><span class="co"># Matriz de confusión</span></span>
 <span id="cb55-2"><a href=""></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> confusion_matrix, classification_report</span>
 <span id="cb55-3"><a href=""></a><span class="bu">print</span>(confusion_matrix(y_test, y_pred))</span>
@@ -2226,7 +2226,7 @@ Esto se llama <strong><em>ajuste de hiperparámetros</em></strong>, al ajustar d
 <h2>GridSearchCV en Scikit-Learn</h2>
 <div class="columns">
 <div class="column" style="font-size:15px">
-<div id="df0fd68f" class="cell" data-execution_count="35">
+<div id="7e184bd5" class="cell" data-execution_count="35">
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href=""></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> GridSearchCV, KFold</span>
 <span id="cb57-2"><a href=""></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> Ridge </span>
 <span id="cb57-3"><a href=""></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -2242,7 +2242,7 @@ Esto se llama <strong><em>ajuste de hiperparámetros</em></strong>, al ajustar d
 <span id="cb57-13"><a href=""></a>ridge_cv.fit(X_train, y_train)</span>
 <span id="cb57-14"><a href=""></a><span class="bu">print</span>(ridge_cv.best_params_, ridge_cv.best_score_)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>{'alpha': 0.0001, 'solver': 'sag'} 0.043698124960781404</code></pre>
+<pre><code>{'alpha': 0.0001, 'solver': 'lsqr'} 0.04369642580649735</code></pre>
 </div>
 </div>
 <p>Lo que obtenemos son los hiperparámetros con mejor rendimiento junto con la puntuación media de validación cruzada sobre ese pliegue.</p>
@@ -2256,7 +2256,7 @@ Esto se llama <strong><em>ajuste de hiperparámetros</em></strong>, al ajustar d
 <h4 id="randomizedsearchcv">RandomizedSearchCV</h4>
 <p>Podemos realizar una busqueda aleatoria, que elige valores de hiperparámetros al azar en lugar de buscar exhautivamente entre todas las opcione. Vamos a demostrar este enfoque</p>
 </div><div class="column" style="font-size:15px">
-<div id="394e66c7" class="cell" data-execution_count="36">
+<div id="91782fb3" class="cell" data-execution_count="36">
 <div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href=""></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> RandomizedSearchCV </span>
 <span id="cb59-2"><a href=""></a>kf <span class="op">=</span> KFold(n_splits <span class="op">=</span> <span class="dv">5</span>, shuffle <span class="op">=</span> <span class="va">True</span>, random_state <span class="op">=</span> <span class="dv">42</span>)</span>
 <span id="cb59-3"><a href=""></a>param_grid <span class="op">=</span> {<span class="st">'alpha'</span>: np.arange(<span class="fl">0.0001</span>, <span class="dv">1</span>, <span class="dv">10</span>), <span class="st">'solver'</span>: [<span class="st">'sag'</span>, <span class="st">'lsqr'</span>]}</span>
@@ -2265,17 +2265,17 @@ Esto se llama <strong><em>ajuste de hiperparámetros</em></strong>, al ajustar d
 <span id="cb59-6"><a href=""></a>ridge_cv.fit(X_train, y_train)</span>
 <span id="cb59-7"><a href=""></a><span class="bu">print</span>(ridge_cv.best_params_, ridge_cv.best_score_)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>{'solver': 'sag', 'alpha': 0.0001} 0.04369816527483705</code></pre>
+<pre><code>{'solver': 'lsqr', 'alpha': 0.0001} 0.04369642580649735</code></pre>
 </div>
 </div>
 <p>En este caso vemos los mejores hiperparámetros apartir de la anterior busqueda en cuadricula.</p>
 <h4 id="rendimiento-del-modelo-1">Rendimiento del modelo</h4>
 <p>Podemos evaluar el rendimiento del modelo en el conjunto de pruebas pasandolo a una llamada del método <code>.score().</code></p>
-<div id="73440301" class="cell" data-execution_count="37">
+<div id="f9f59457" class="cell" data-execution_count="37">
 <div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href=""></a>test_score <span class="op">=</span> ridge_cv.score(X_test, y_test)</span>
 <span id="cb61-2"><a href=""></a><span class="bu">print</span>(test_score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>0.03676371656461053</code></pre>
+<pre><code>0.03676198195780234</code></pre>
 </div>
 </div>
 </div></div>
@@ -2321,88 +2321,132 @@ Esto se llama <strong><em>ajuste de hiperparámetros</em></strong>, al ajustar d
 <li><p><strong>pandas:</strong> <code>get_dummies()</code></p></li>
 </ul>
 <h4 id="data-music">Data Music</h4>
-<p>En este capitulo trabajaremos con un conjunto de datos de música, donde:</p>
+<p>En este capitulo trabajaremos con un conjunto de datos de música, tanto para problemas de clasificación, como de regresión, donde:</p>
 <ul>
-<li><p><strong>popularity:</strong> Target variable</p></li>
-<li><p><strong>genre:</strong> variable categorica</p></li>
+<li><p><strong>popularity:</strong> Target variable.</p></li>
+<li><p><strong>genre:</strong> variable categorica.</p></li>
 </ul>
-<div id="4b03fc17" class="cell" data-execution_count="38">
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href=""></a>music <span class="op">=</span> pd.read_csv(<span class="st">"music_clean.csv"</span>)</span>
-<span id="cb63-2"><a href=""></a>music.head(n<span class="op">=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="38">
-<div>
-<style scoped="">
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-
-<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header" style="text-align: right;">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">Unnamed: 0</th>
-<th data-quarto-table-cell-role="th">popularity</th>
-<th data-quarto-table-cell-role="th">acousticness</th>
-<th data-quarto-table-cell-role="th">danceability</th>
-<th data-quarto-table-cell-role="th">duration_ms</th>
-<th data-quarto-table-cell-role="th">energy</th>
-<th data-quarto-table-cell-role="th">instrumentalness</th>
-<th data-quarto-table-cell-role="th">liveness</th>
-<th data-quarto-table-cell-role="th">loudness</th>
-<th data-quarto-table-cell-role="th">speechiness</th>
-<th data-quarto-table-cell-role="th">tempo</th>
-<th data-quarto-table-cell-role="th">valence</th>
-<th data-quarto-table-cell-role="th">genre</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>36506</td>
-<td>60.0</td>
-<td>0.89600</td>
-<td>0.726</td>
-<td>214547.0</td>
-<td>0.177</td>
-<td>0.000002</td>
-<td>0.116</td>
-<td>-14.824</td>
-<td>0.0353</td>
-<td>92.934</td>
-<td>0.618</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>37591</td>
-<td>63.0</td>
-<td>0.00384</td>
-<td>0.635</td>
-<td>190448.0</td>
-<td>0.908</td>
-<td>0.083400</td>
-<td>0.239</td>
-<td>-4.795</td>
-<td>0.0563</td>
-<td>110.012</td>
-<td>0.637</td>
-<td>1</td>
-</tr>
-</tbody>
-</table>
-
+<p><img data-src="img/g_27.png"></p>
+</div></div>
+</section>
+<section id="eda-w-con-características-categoricas" class="slide level2">
+<h2>EDA w/ con características categoricas</h2>
+<div class="columns">
+<div class="column" style="font-size:15px">
+<p>Primero construiremos un modelo de regresión, utilizando todas las características del conjunto de datos, para predecir la popularidad de las canciones, existe una característica categórica, el genero con 10 valores posibles.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/g_28.png" class="quarto-figure quarto-figure-center" width="500"></p>
+</figure>
+</div>
+<p>Este diagrama de caja, muestra como varia la popularidad según el genero.</p>
+<h4 id="regresión-lineal">Regresión Lineal</h4>
+<div id="e1afb539" class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb63-2"><a href=""></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> cross_val_score, KFold</span>
+<span id="cb63-3"><a href=""></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LinearRegression</span>
+<span id="cb63-4"><a href=""></a>music_dummies <span class="op">=</span> pd.read_csv(<span class="st">"music_clean.csv"</span>)</span>
+<span id="cb63-5"><a href=""></a>X <span class="op">=</span> music_dummies.drop(<span class="st">"popularity"</span>, axis <span class="op">=</span> <span class="dv">1</span>).values</span>
+<span id="cb63-6"><a href=""></a>y <span class="op">=</span> music_dummies[<span class="st">"popularity"</span>].values</span>
+<span id="cb63-7"><a href=""></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X,y,test_size <span class="op">=</span> <span class="fl">0.2</span>, random_state <span class="op">=</span> <span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="font-size:15px">
+<div id="75b768bb" class="cell" data-execution_count="39">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href=""></a><span class="co"># Instanciamos el modelo de Regresión Lineal</span></span>
+<span id="cb64-2"><a href=""></a>kf <span class="op">=</span> KFold(n_splits <span class="op">=</span> <span class="dv">5</span>, shuffle <span class="op">=</span> <span class="va">True</span>, random_state <span class="op">=</span> <span class="dv">42</span>)</span>
+<span id="cb64-3"><a href=""></a>linreg <span class="op">=</span> LinearRegression()</span>
+<span id="cb64-4"><a href=""></a>linreg_cv <span class="op">=</span> cross_val_score(linreg, X_train, y_train, cv <span class="op">=</span> kf, scoring <span class="op">=</span> <span class="st">"neg_mean_squared_error"</span>)</span>
+<span id="cb64-5"><a href=""></a><span class="co"># neg_mean_squared_error: devuelve em MSE negativo. Esto se deba a que las métricas</span></span>
+<span id="cb64-6"><a href=""></a><span class="co"># de Validación cruzada de scikit-learn presuponen que una puntuación más alta es </span></span>
+<span id="cb64-7"><a href=""></a><span class="co"># mejor, por lo que el MSE se cambia a negativo para contrarrestarlo. </span></span>
+<span id="cb64-8"><a href=""></a><span class="bu">print</span>(np.sqrt(<span class="op">-</span>linreg_cv))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[10.19270166 10.43734567  9.25570311  9.20541221  9.85376468]</code></pre>
 </div>
 </div>
+</div></div>
+</section>
+<section id="tratamiento-de-los-datos-faltantes" class="slide level2">
+<h2>Tratamiento de los datos faltantes</h2>
+<div class="columns">
+<div class="column" style="font-size:15px">
+<p>Veamos ahora como tratar los datos que faltan. Cuando no hay ningún valor para una característica en una fila concreta, hablamos de datos que falta. Esto puede ocurrir:</p>
+<ul>
+<li><p>Porqué no hubo observación.</p></li>
+<li><p>O porqué los datos pueden estar corruptos</p></li>
+</ul>
+<p>Sea cual sea el motivo tenemos que solucionarlo, antes hemos trabajado con el conjunto de datos de música. Continuemos con el mismo.</p>
+<p>Esto lo hacemos con:</p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode numberSource {bash} number-lines code-with-copy"><code class="sourceCode"><span id="cb66-1"><a href=""></a>print(music_df.isna().sum().sort_values())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/g_29.png" class="quarto-figure quarto-figure-center" width="500"></p>
+</figure>
 </div>
+<p>Como podemos ver a cada característica le faltan entre 8 a 200 valores. Un enfoque habitual consiste en eliminar las observaciones emitidas que representen menos del 5% de todos los datos.Para ello, utilizamos el método <code>.dropna()</code> de pandas.</p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode numberSource {bash} number-lines code-with-copy"><code class="sourceCode"><span id="cb67-1"><a href=""></a>music_df = music_df.dropna(subset = ["genre", "popularity", "loudness", "liveness", "tempo"])</span>
+<span id="cb67-2"><a href=""></a>print(music_df.isna().sum().sort_values())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="font-size:15px">
+<p>Volviendo a comprobar el DataFrame, vemos menos valores pérdidos:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/g_30.png" class="quarto-figure quarto-figure-center" width="500"></p>
+</figure>
+</div>
+<h4 id="imputando-valores-pérdidos">Imputando Valores Pérdidos</h4>
+<p>Otra opción es, imputar valores pérdidos, esto supone hacer una estimación sobre cuales podrían ser los valores que faltan.</p>
+<ul>
+<li><p>Podemos imputar la media de todas las entradas, no omitidas de una característica determinada.</p></li>
+<li><p>También podemos utilizar otros valores como la mediana.</p></li>
+<li><p>Para los valores categóricos, solemos imputar el valor más frecuente. Hay que tener en cuenta que debemos dividir nuestros datos antes de imputarlos, para evitar que se filtre información del conjunto de pruebas a nuestro modelo.</p></li>
+<li><p>Este concepto se conoce como fuga de datos.</p></li>
+</ul>
+</div></div>
+</section>
+<section id="imputando-valores-pérdidos-1" class="slide level2">
+<h2>Imputando valores pérdidos</h2>
+<div class="columns">
+<div class="column" style="font-size:15px">
+<h3 id="imputación-con-scikit-learn">Imputación con Scikit-Learn</h3>
+<p>A continuación se muestra un flujo de trabajo de imputación para predecir la popularidad de una canción.</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode numberSource {bash} number-lines code-with-copy"><code class="sourceCode"><span id="cb68-1"><a href=""></a>from sklearn.impute import SimpleImputer </span>
+<span id="cb68-2"><a href=""></a>X_cat = music_df["genre"].values.reshape(-1,1)</span>
+<span id="cb68-3"><a href=""></a>X_num = music_df.drop(["genre", "popularity"], axis = 1).values</span>
+<span id="cb68-4"><a href=""></a>y = music_df["popularity"].values</span>
+<span id="cb68-5"><a href=""></a>X_train_cat, X_test_cat, y_train, y_test = train_test_split(X_cat, y, test_size = 0.2,</span>
+<span id="cb68-6"><a href=""></a>random_state = 12)</span>
+<span id="cb68-7"><a href=""></a>X_train_num, X_test_num, y_train, y_test = train_test_split(X_num, y, test_size = 0.2,</span>
+<span id="cb68-8"><a href=""></a>random_state = 12)</span>
+<span id="cb68-9"><a href=""></a># para imputar los valores categoricos pérdidos, instanciamos: </span>
+<span id="cb68-10"><a href=""></a>imp_cat = SimpleImputer(strategy = "most_frequent")</span>
+<span id="cb68-11"><a href=""></a>X_train_cat = imp_cat.fit_transform(X_train_cat)</span>
+<span id="cb68-12"><a href=""></a>X_test_cat = imp_cat.transform(X_test_cat)</span>
+<span id="cb68-13"><a href=""></a></span>
+<span id="cb68-14"><a href=""></a># Para nuestros datos numericos instanciamos otro imputador</span>
+<span id="cb68-15"><a href=""></a>imp_num = SimpleImputer() # Por defecto, rellena los valores con la media </span>
+<span id="cb68-16"><a href=""></a>X_train_num = imp_num.fit_transform(X_train_num)</span>
+<span id="cb68-17"><a href=""></a>X_test_num = imp_num.fit_transform(X_test_num)</span>
+<span id="cb68-18"><a href=""></a># Combinamos nuestros datos de entrenamiento </span>
+<span id="cb68-19"><a href=""></a>X_train = np.append(X_train_num, X_train_cat, axis = 1) </span>
+<span id="cb68-20"><a href=""></a># Repetimos esto, para nuestros datos de prueba </span>
+<span id="cb68-21"><a href=""></a>X_test = np.append(X_test_num, X_test_cat, axis = 1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Debido a su capacidad para transformar nuestros datos a los imputadores se les conoce como transformadores.</p>
+<h4 id="imputando-con-pipeline">Imputando con pipeline</h4>
+<p>También podemos imputar utilizando una canalización, que es un objeto utilizado para ejecutar una serie de transformación y construir un modelo en un único flujo de trabajo.</p>
+</div><div class="column" style="font-size:15px">
+<div class="sourceCode" id="cb69"><pre class="sourceCode numberSource {bash} number-lines code-with-copy"><code class="sourceCode"><span id="cb69-1"><a href=""></a>from sklearn.pipeline import Pipeline </span>
+<span id="cb69-2"><a href=""></a>music_df = music_df.dropna(subset = ["genre", "popularity", "loudness", "liveness", "tempo"])</span>
+<span id="cb69-3"><a href=""></a>music_df["genre"] = np.where(music_df["genre"] == "Rock",1,0)</span>
+<span id="cb69-4"><a href=""></a>X = music_df.drop("genre", axis = 1).values</span>
+<span id="cb69-5"><a href=""></a>y = music_df["genre"].values</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Para construir un pipeline, construimos una lista de pasos que contengan tuplas con los nombres de los pasos especificados:</p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode numberSource {bash} number-lines code-with-copy"><code class="sourceCode"><span id="cb70-1"><a href=""></a>steps = [("imputation", SimpleImputer()),("logistic_regression", LogisticRegression())]</span>
+<span id="cb70-2"><a href=""></a>pipeline = Pipeline(steps)</span>
+<span id="cb70-3"><a href=""></a>X_train, X_test, y_train, y_test = train_test_split(X,y, test_size = 0.3, random_state = 42)</span>
+<span id="cb70-4"><a href=""></a>pipeline.fit(X_train, y_train)</span>
+<span id="cb70-5"><a href=""></a>pipeline.score(X_test, y_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img data-src="img/g_31.png" width="500"></p>
+<p>Debemos tener encuenta que, en un pipeline, todos los pasos excepto el último deben ser transformadores.</p>
 </div></div>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
